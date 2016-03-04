@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="context.artwork.downloader.auto" name="Download All Artwork - Artwork Downloader" version="1.0.1" provider-name="rmrector">
+	<requires>
+		<import addon="xbmc.python" version="2.20.0" />
+		<import addon="script.artwork.downloader" version="12.0.29" />
+	</requires>
+	<extension point="kodi.context.item" library="context.py">
+		<item>
+			<label>32000</label>
+			<visible>Container.Content(tvshows)|Container.Content(movies)|Container.Content(musicvideos)</visible>
+			<parent>kodi.core.manage</parent>
+		</item>
+	</extension>
+	<extension point="kodi.addon.metadata">
+		<summary lang="en">Download all missing artwork configured in Artwork Downloader for the selected item.</summary>
+		<description lang="en">Download all missing artwork configured in Artwork Downloader for the selected item. Added to the 'Manage...' context menu. The add-on Artwork Downloader does all the work, this just runs it for the selected item.</description>
+		<disclaimer lang="en" />
+		<platform>all</platform>
+		<language />
+		<website>https://github.com/rmrector/context.artwork.downloader.auto</website>
+		<forum />
+		<email />
+		<license>The MIT License</license>
+		<source>https://github.com/rmrector/context.artwork.downloader.auto</source>
+	</extension>
+</addon>
+
+<addon id="context.artwork.downloader.gui" name="Select Artwork to Download - Artwork Downloader" version="1.0.1" provider-name="rmrector">
+	<requires>
+		<import addon="xbmc.python" version="2.20.0" />
+		<import addon="script.artwork.downloader" version="12.0.29" />
+	</requires>
+	<extension point="kodi.context.item" library="context.py">
+		<item>
+			<label>32000</label>
+			<visible>Container.Content(tvshows)|Container.Content(movies)|Container.Content(musicvideos)</visible>
+			<parent>kodi.core.manage</parent>
+		</item>
+	</extension>
+	<extension point="kodi.addon.metadata">
+		<summary lang="en">Show Artwork Downloader GUI for the selected item.</summary>
+		<description lang="en">Show Artwork Downloader GUI for the selected item. Added to the 'Manage...' context menu. The add-on Artwork Downloader does all the work, this just runs it for the selected item.</description>
+		<disclaimer lang="en" />
+		<platform>all</platform>
+		<language />
+		<website>https://github.com/rmrector/context.artwork.downloader.gui</website>
+		<forum />
+		<email />
+		<license>The MIT License</license>
+		<source>https://github.com/rmrector/context.artwork.downloader.gui</source>
+	</extension>
+</addon>
+
 <addon id="context.extendedinfo.dialog" name="ExtendedInfo Script - Open dialog" version="1.0.0" provider-name="phil65">
   <requires>
     <import addon="xbmc.python" version="2.20.0"/>
@@ -21,14 +73,14 @@
   </extension>
 </addon>
 
-<addon id="context.extendedinfo.ratemedia" name="ExtendedInfo Script - Rate media items" version="0.9.0" provider-name="phil65">
+<addon id="context.extendedinfo.ratemedia" name="ExtendedInfo Script - Rate media items" version="0.1.0" provider-name="phil65">
   <requires>
     <import addon="xbmc.python" version="2.20.0"/>
     <import addon="script.extendedinfo" version="2.0.7"/>
   </requires>
   <extension point="kodi.context.item" library="addon.py">
     <item>
-      <label>32000</label>
+      <label>30000</label>
       <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,episode)</visible>
     </item>
   </extension>
@@ -39,6 +91,36 @@
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
     <forum></forum>
     <source></source>
+  </extension>
+</addon>
+
+<addon id="context.item.extras" name="Extras" version="1.1.0" provider-name="takoi">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.module.routing" version="0.2.0"/>
+  </requires>
+  <extension point="kodi.context.item" library="addon.py">
+    <item>
+      <label>30000</label>
+      <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) |
+        StringCompare(ListItem.dbtype,season)
+      </visible>
+    </item>
+  </extension>
+  <extension point="xbmc.python.pluginsource" library="plugin.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="kodi.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">View extras and special features</summary>
+    <description lang="en">Provides an easy way to browse and view movie and TV show extras. Extras can be accessed from the context menu in the video library.
+
+By default, the add-on will look in the "Extras" sub-folder for content (can be changed in settings).
+
+Tip: for how to avoid extras beings scraped to library, see http://kodi.wiki/view/Add-on:Extras</description>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+    <forum></forum>
+    <source>https://github.com/tamland/kodi-addon-extras</source>
   </extension>
 </addon>
 
@@ -110,6 +192,156 @@
     <platform>all</platform>
     <website>http://tvaddons.ag/</website>
     <forum>http://forums.tvaddons.ag/forums/180-TKNORRIS-RELEASE-REPOSITORY</forum>
+  </extension>
+</addon>
+
+<addon id="context.skinshortcuts.addtomenu" name="Skin Shortcuts - Add To Menu" version="1.0.0" provider-name="BobCratchett">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.skinshortcuts" version="1.0.7"/>
+  </requires>
+  <extension point="kodi.context.item" library="addon.py">
+    <item>
+      <label>32000</label>
+      <visible>!StringCompare(ListItem.Label,..) + ListItem.IsFolder</visible>
+    </item>
+  </extension>
+  <extension point="kodi.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en_GB">Add folders to Skin Shortcuts managed menus</summary>
+    <description lang="en_GB">Add folders to Skin Shortcuts managed menus directly from the context menu. Requires skin support.</description>
+    <license>GNU General Public License, v2</license>
+    <forum></forum>
+    <source>https://github.com/Ignoble61/context.skinshortcuts.addtomenu</source>
+  </extension>
+</addon>
+
+<addon id="context.trakt.addtowatchlist" name="Trakt - Add to watchlist button" version="1.0.1" provider-name="Razzeee">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.trakt" version="3.0.2"/>
+  </requires>
+    <extension point="kodi.context.item" library="addon.py">
+      <item>
+        <label>32000</label>
+        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
+      </item>
+    </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Add Trakt add to watchlist button to context menu in video library</summary>>
+    <description lang="en">Add Trakt add to watchlist button to the context menu in your library.</description>
+    <platform>all</platform>
+    <forum></forum>
+    <source>https://github.com/Razzeee/context.trakt.addtowatchlist</source>
+  </extension>
+</addon>
+
+<addon id="context.trakt.contextmenu" name="Trakt - Contextmenu" version="1.0.1" provider-name="Razzeee">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.trakt" version="3.0.2"/>
+  </requires>
+    <extension point="kodi.context.item" library="addon.py">
+      <item>
+        <label>32000</label>
+        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
+      </item>
+    </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Adds a Trakt contextmenu button to context menu in your videolibrary</summary>
+    <description lang="en">Add Trakt contextmenu button to context menu in library. This contextmenu will offer "Add to wachlist", "Rate this movie", "Toggle watched" and "Synchronize library".</description>
+    <platform>all</platform>
+    <forum></forum>
+    <source>https://github.com/Razzeee/context.trakt.contextmenu/</source>
+  </extension>
+</addon>
+
+<addon id="context.trakt.rate" name="Trakt - Rating button" version="1.0.3" provider-name="Razzeee">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.trakt" version="3.0.2"/>
+  </requires>
+    <extension point="kodi.context.item" library="addon.py">
+      <item>
+        <label>32000</label>
+        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
+      </item>
+    </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de">Trakt-Bewertungsschaltfläche zum Kontextmenü in der Bibliothek hinzufügen</summary>
+    <summary lang="en">Add Trakt rating button to context menu in library</summary>
+    <summary lang="en_NZ">Add Trakt rating button to context menu in library</summary>
+    <summary lang="en_US">Add Trakt rating button to context menu in library</summary>
+    <summary lang="fr">Ajouter le bouton d'évaluation trakt au menu contextuel dans la médiathèque</summary>
+    <summary lang="fr_CA">Ajouter un bouton d'évaluation Trakt au menu contextuel de la vidéothèque</summary>
+    <summary lang="gl">Engadir o botón de valoración ao menú contextual da biblioteca</summary>
+    <summary lang="he">הוסף כפתור דירוג Trakt לתפריט הצדדי בספריה</summary>
+    <summary lang="hr">Dodaj tipku Trakt ocjene u kontekstni izbornik zbirke</summary>
+    <summary lang="hu">Trakt értékelés gomb a menüben</summary>
+    <summary lang="it">Aggiunge l'opzione "Vota" di Trakt al menu' contestuale della libreria.</summary>
+    <summary lang="ko">라이브러리 컨텍스트 메뉴에 Trakt 평가 버튼 추가</summary>
+    <summary lang="lt">Pridėti Trakt.tv reitingo mygtuką į bibliotekos kontekstinį meniu</summary>
+    <summary lang="nl">Voeg Trakt waardering knop naar context menu in bibliotheek</summary>
+    <summary lang="no">Legg til Trakt vurdering i bibliotekets hurtigmeny</summary>
+    <summary lang="pl">Dodaje przycisk 'Trakt - Oceń' do menu kontekstowego biblioteki</summary>
+    <summary lang="pt">Adicionar botão de classificação ao menu de contexto na biblioteca</summary>
+    <summary lang="pt_BR">Adicionar botão de avaliação do Trakt para o menu de contexto na biblioteca</summary>
+    <description lang="en">Add Trakt rating button to the context menu in your library.</description>
+    <forum></forum>
+    <source>https://github.com/Razzeee/context.trakt.rate</source>
+  </extension>
+</addon>
+
+<addon id="context.trakt.watched" name="Trakt - Watched button" version="1.0.2" provider-name="Razzeee">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.trakt" version="3.0.2"/>
+  </requires>
+    <extension point="kodi.context.item" library="addon.py">
+      <item>
+        <label>32000</label>
+        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
+      </item>
+    </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de">Trakt-Schaltfläche für Gesehene zum Kontextmenü in der Bibliothek hinzufügen.</summary>
+    <summary lang="en">Add Trakt watched button to context menu in library</summary>
+    <summary lang="en_NZ">Add Trakt watched button to context menu in library</summary>
+    <summary lang="en_US">Add Trakt watched button to context menu in library</summary>
+    <summary lang="fr">Ajouter le bouton Trakt Vu au menu contextuel de la médiathèque</summary>
+    <summary lang="fr_CA">Ajouter un bouton Trakt « Regardé » au menu contextuel de la vidéothèque. </summary>
+    <summary lang="gl">Engadir o botón de 'visto' no menú contextual da biblioteca</summary>
+    <summary lang="he">הוסף כפתור נצפה של Trakt לתפריט הצדדי בספריה</summary>
+    <summary lang="hu">Trakt értékelés gomb hozzáadása a menühöz</summary>
+    <summary lang="it">Aggiunge l'opzione "Già visto" di Trakt al menu' contestuale della libreria.</summary>
+    <summary lang="ko">라이브러리 컨텍스트 메뉴에 Trakt 시청함 버튼 추가</summary>
+    <summary lang="lt">Pridėti Trakt.tv peržiūrėjimo būsenos mygtuką į bibliotekos kontekstinį meniu</summary>
+    <summary lang="nl">Voeg Trakt bekeken knop aan context menu in bibliotheek</summary>
+    <summary lang="no">Legg til Trakt har-sett knapp i bibliotekets hurtigmeny</summary>
+    <summary lang="pl">Dodaje przycisk 'Trakt - Oznacz jako obejrzane' do menu kontekstowego biblioteki</summary>
+    <summary lang="pt">Adicionar botão Visto do Trakt para o menu de contexto</summary>
+    <summary lang="pt_BR">Adicionar o botão assistido Trakt para o menu de contexto na biblioteca</summary>
+    <description lang="de">Trakt-Schaltfläche für Gesehene zum Kontextmenü in der Bibliothek hinzufügen. Benötigt script.trakt installiert und aktiviert.</description>
+    <description lang="en">Add Trakt watched button to context menu in library. Needs script.trakt installed and activated.</description>
+    <description lang="en_NZ">Add Trakt watched button to context menu in library. Needs script.trakt installed and activated.</description>
+    <description lang="en_US">Add Trakt watched button to context menu in library. Needs script.trakt installed and activated.</description>
+    <description lang="fr">Ajoute le bouton Trakt Vu au menu contextuel de la médiathèque. Nécessite l'installation et l'activation de script.trakt.</description>
+    <description lang="fr_CA">Ajouter un bouton Trakt « Regardé » au menu contextuel de la vidéothèque. Script.trakt doit être installé et activé.</description>
+    <description lang="gl">Engadir o botón de 'visto' no menú contextual da biblioteca. É necesario ter instalado e activado script.trakt</description>
+    <description lang="he">הוסף כפתור נצפה של Trakt לתפריט הצדדי בספריה. צריך את התוסף Trakt מותקן ומופעל.</description>
+    <description lang="hr">Dodaj tipku Trakt odgledano u kontekstni izbornik zbirke. Potrebno je instalirati i aktivirati script.trakt .</description>
+    <description lang="hu">Trakt értékelés gomb hozzáadása a menühöz. A script.trakt telepítése és aktiválása szükséges hozzá.</description>
+    <description lang="it">Aggiunge l'opzione "Già visto" di Trakt al menu' contestuale della libreria. Necessita di script.trakt installato ed attivato.</description>
+    <description lang="ko">라이브러리 컨텍스트 메뉴에 Trakt 시청한 버튼을 추가합니다. script.trakt 애드온 설치가 필요합니다.</description>
+    <description lang="lt">Pridėti Trakt.tv peržiūrėjimo būsenos mygtuką į bibliotekos kontekstinį meniu. Reikia, kad būtų įdiegtas ir aktyvuotas script.trakt.</description>
+    <description lang="nl">Voeg Trakt waardering knop naar context menu in bibliotheek. Vereist dat script.trakt is geïnstalleerd en geactiveerd.</description>
+    <description lang="no">Legg til Trakt har-sett knapp i bibliotekets hurtigmeny. Script.trakt må være installert og aktivert.</description>
+    <description lang="pl">Dodaje przycisk 'Trakt - Oznacz jako obejrzane' do menu kontekstowego biblioteki. Wymaga zainstalowanego i aktywnego dodatku Trakt.</description>
+    <description lang="pt">Adicionar botão Visto do Trakt para o menu de contexto. É necessário ter instalado e ativo o script.trakt.</description>
+    <description lang="pt_BR">Adiciona o botão assistido Trakt no menu de contexto na biblioteca. Necessita o script Trakt instalado e ativado.</description>
+    <platform>all</platform>
+    <forum></forum>
+    <source></source>
   </extension>
 </addon>
 
@@ -1872,11 +2104,10 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
   </extension>
 </addon>
 
-<addon id="plugin.program.VibeW" name="Vibe Wizard" version="2.9.5" provider-name="The-vibe.co.il">
+<addon id="plugin.program.VibeW" name="Vibe Wizard" version="2.9.8" provider-name="The-vibe.co.il">
   <requires>
     <import addon="xbmc.python" version="2.1.0" optional="false"/>
     <import addon="repository.thevibe" version="3.2.0" optional="false"/>
-    <import addon="service.library.data.provider" version="0.1.1" optional="false"/>
     <import addon="service.EMupdater" version="1.0.8" optional="false"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
@@ -4198,15 +4429,37 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
-<addon id="repository.thevibe" name="TheVibe Team Repository" version="3.3.0" provider-name="TheVibe Team">
-  <extension point="xbmc.addon.repository" name=".TheVibe Repository ">
-    <info compressed="false">https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/addons.xml</info>
-    <checksum>https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/addons.xml.md5</checksum>
-    <datadir zip="true">https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/</datadir>
+<addon id="repository.thevibe" name="The-Vibe Team Repository"	version="4.0.0" provider-name="The-Vibe Team">
+  <requires>
+    <import addon="xbmc.addon" version="12.0.0"/>
+  </requires>
+  <extension point="xbmc.addon.repository" name=":The-Vibe Team Repository">
+    <dir minversion="15.0.0">
+      <info compressed="true">https://github.com/teamThevibe/repository.thevibe.isengard/raw/master/addons.xml</info>
+      <checksum>https://github.com/teamThevibe/repository.thevibe.isengard/raw/master/addons.xml.md5</checksum>
+      <datadir zip="true">https://github.com/teamThevibe/repository.thevibe.isengard/raw/master/Zips/</datadir>
+      <hashes>false</hashes>
+    </dir>
   </extension>
+  <extension point="xbmc.addon.repository" name=":The-Vibe Team Repository">
+    <dir minversion="15.9.0">
+      <info compressed="true">https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/addons.xml</info>
+      <checksum>https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/addons.xml.md5</checksum>
+      <datadir zip="true">https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/Zips/</datadir>
+      <hashes>false</hashes>
+    </dir>
+  </extension>
+
   <extension point="xbmc.addon.metadata">
-    <summary>The-Vibe Team Repository</summary>
-    <description>The-Vibe Team Repository</description>
+    <summary lang="en_US">Install Add-ons from The Vibe Team</summary>
+    <summary lang="he_IL">התקנת הרחבות מ־The Vibe Team</summary>
+    <summary lang="ru_RU">Установить дополнения с сайта The Vibe Team</summary>
+    <description lang="en_US">Download and install add-ons from The Vibe Team add-on repository.[CR]  By using the official Repository you will be able to take advantage of our extensive file mirror service to help get you faster downloads from a region close to you.[CR]  All add-ons on this repository have under gone basic testing, if you find a broken or not working add-on please report it to The Vibe Team so we can take any action needed.</description>
+    <description lang="he_IL">הורדה והתקנת הרחבות ממאגר הרחבות The Vibe Team הרשמי.[CR]  שימוש במאגר הרשמי מאפשר לנצל את שירות שיקוף הקבצים שלThe Vibe Team העוזר להוריד מהר יותר מהשרת הקרוב ביותר.[CR] כל ההרחבות במאגר זה עברו בדיקה בסיסית. יש לדווח לצוות הפיתוח של The Vibe Team על כל הרחבה שנמצאה כלא תקינה או שלא עובדת ע"מ שתתבצע הפעולה המתאימה.</description>
+    <description lang="ru_RU">Загружайте и устанавливайте обновления из официального репозитория The Vibe Team[CR]Используя официальный репозиторий, вы сможете воспользоваться преимуществами распределенного хранилища для быстрой загрузки файлов с ближайшего к вам сервера.[CR]Все дополнения в данном репозитории прошли тестирование. Если вы обнаружили нерабочее дополнение, сообщите об этом разработчикам The Vibe Team.</description>
+    <disclaimer lang="en_US">Team-Kodi did not make all the add-ons on this repository and are not responsible for their content</disclaimer>
+    <disclaimer lang="he_IL">צוות הפיתוח של The Vibe Team לא יצר את כל ההרחבות שבמאגר זה ואיננו אחראי על תוכנן</disclaimer>
+    <disclaimer lang="ru_RU">Разработчики The Vibe Team не являются авторами всех дополнений в данном репозитории и не несут ответственность за их содержимое.</disclaimer>
     <platform>all</platform>
     <website>http://www.the-vibe.co.il</website>
   </extension>
@@ -4396,11 +4649,43 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
-<addon id="resource.language.he_il" version="2.0.2" name="Hebrew" provider-name="Team Kodi">
+<addon
+  id="resource.language.en_us"
+  version="2.0.1"
+  name="English (US)"
+  provider-name="Team Kodi">
   <requires>
-    <import addon="kodi.resource" version="1.0.0" />
+    <import addon="kodi.resource" version="1.0.0"/>
   </requires>
-  <extension point="kodi.resource.language" locale="he_IL">
+  <extension
+    point="kodi.resource.language"
+    locale="en_US">
+    <charsets>
+      <gui>CP1252</gui>
+      <subtitle>CP1252</subtitle>
+    </charsets>
+    <sorttokens>
+      <token>The</token>
+    </sorttokens>
+  </extension>
+  <extension point="kodi.addon.metadata">
+    <summary lang="en">English (US) language pack</summary>
+    <description lang="en">English (US) version of all texts used in Kodi.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon
+  id="resource.language.he_il"
+  version="2.0.3"
+  name="Hebrew"
+  provider-name="Team Kodi">
+  <requires>
+    <import addon="kodi.resource" version="1.0.0"/>
+  </requires>
+  <extension
+    point="kodi.resource.language"
+    locale="he_IL">
     <charsets>
       <gui unicodefont="true">CP1255</gui>
       <subtitle>CP1255</subtitle>
@@ -4409,6 +4694,49 @@ http://www.hometheater.co.il</description>
   <extension point="kodi.addon.metadata">
     <summary lang="en">Hebrew language pack</summary>
     <description lang="en">Hebrew version of all texts used in Kodi.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon
+  id="resource.language.ru_ru"
+  version="2.0.3"
+  name="Russian"
+  provider-name="Team Kodi">
+  <requires>
+    <import addon="kodi.resource" version="1.0.0"/>
+  </requires>
+  <extension
+    point="kodi.resource.language"
+    locale="ru_RU">
+    <charsets>
+      <gui unicodefont="true">utf-8</gui>
+      <subtitle>CP1251</subtitle>
+    </charsets>
+     <sorttokens>
+      <token>The</token>
+      <token>A</token>
+      <token>An</token>
+      <token>Der</token>
+      <token>Die</token>
+      <token>Das</token>
+      <token>Le</token>
+      <token>La</token>
+      <token>Les</token>
+      <token>Un</token>
+      <token>Une</token>
+      <token>Des</token>
+      <token>Il</token>
+      <token>Lo</token>
+      <token>La</token>
+      <token>Gli</token>
+      <token>Uno</token>
+      <token>Una</token>
+    </sorttokens>
+  </extension>
+  <extension point="kodi.addon.metadata">
+    <summary lang="en">Russian language pack</summary>
+    <description lang="en">Russian version of all texts used in Kodi.</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -4982,35 +5310,35 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 	</extension>
 </addon>
 
-<addon id="script.extendedinfo" name="ExtendedInfo Script" version="4.5.1" provider-name="phil65">
-  <requires>
-    <import addon="xbmc.python" version="2.24.0" />
-    <import addon="script.module.simplejson" version="2.0.10" />
-    <import addon="script.module.youtube.dl" version="14.519.1" />
-    <import addon="resource.images.studios.white" version="0.0.5" />
-    <import addon="script.module.autocompletion" version="1.0.0" />
-    <import addon="script.module.actionhandler" version="1.0.1" />
-    <import addon="script.module.t9.search" version="1.0.0" />
-    <!-- 		<import addon="script.module.buggalo" version="1.1.6"/>-->
-    <import addon="script.module.pil" version="1.1.7" />
-  </requires>
-  <extension point="xbmc.python.script" library="default.py">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.python.library" library="default.py" />
-  <extension point="xbmc.python.pluginsource" library="plugin.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <language />
-    <summary lang="en">ExtendedInfo Script</summary>
-    <description lang="en">This script offers various possibilities to display online content inside skins as well as a complete MovieDB browser including info dialogs for various media types. Used services are themoviedb.org, theaudiodb.org, rottentomatoes.com, Trakt.TV, omdbapi.com and a lot more. Needs skin implementation for lot of functions.</description>
-    <platform>all</platform>
-    <license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
-    <forum>http://forum.kodi.tv/showthread.php?tid=160558</forum>
-    <source>https://github.com/phil65/script.extendedinfo</source>
-    <email>phil65@kodi.tv</email>
-  </extension>
+<addon id="script.extendedinfo" name="ExtendedInfo Script" version="4.5.2" provider-name="phil65">
+	<requires>
+		<import addon="xbmc.python" version="2.24.0"/>
+		<import addon="script.module.simplejson" version="2.0.10"/>
+		<import addon="script.module.youtube.dl" version="14.519.1"/>
+		<import addon="resource.images.studios.white" version="0.0.5"/>
+		<import addon="script.module.autocompletion" version="1.0.0"/>
+		<import addon="script.module.actionhandler" version="1.0.1"/>
+		<import addon="script.module.t9.search" version="1.0.0"/>
+		<!-- 		<import addon="script.module.buggalo" version="1.1.6"/>-->
+		<import addon="script.module.pil" version="1.1.7"/>
+	</requires>
+	<extension point="xbmc.python.script" library="default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.python.library" library="default.py" />
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<language/>
+		<summary lang="en">ExtendedInfo Script</summary>
+		<description lang="en">This script offers various possibilities to display online content inside skins as well as a complete MovieDB browser including info dialogs for various media types. Used services are themoviedb.org, theaudiodb.org, rottentomatoes.com, Trakt.TV, omdbapi.com and a lot more. Needs skin implementation for lot of functions.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
+		<forum>http://forum.kodi.tv/showthread.php?tid=160558</forum>
+		<source>https://github.com/phil65/script.extendedinfo</source>
+		<email>phil65@kodi.tv</email>
+	</extension>
 </addon>
 
 <addon id="script.eztv2kd" name="[COLOR FFC0392B]EZTV2[/COLOR]KD" version="1.1.2" provider-name="mancuniancol">
@@ -5076,19 +5404,117 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 	</extension>
 </addon>
 
-<addon id="script.favourites" name="Favourites script" version="8.0.8" provider-name="ronie|`Black">
+<addon id="script.favourites" name="Favourites script" version="6.0.3" provider-name="ronie, `Black">
 	<requires>
-		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="xbmc.python" version="2.19.0"/>
 	</requires>
 	<extension point="xbmc.python.library" library="default.py"/>
 	<extension point="xbmc.addon.metadata">
-		<language/>
-		<summary>Favourites script</summary>
-		<description>Fetches item from your xbmc favourites to populate Home menu/submenu with custom buttons.</description>
-		<disclaimer>Needs skin support for it to be used properly</disclaimer>
+		<summary lang="be">Favourites script</summary>
+		<summary lang="bg">Скрипт "Любими"</summary>
+		<summary lang="ca">Script Preferit</summary>
+		<summary lang="cs">Script pro Oblíbené</summary>
+		<summary lang="da">Favoritscript</summary>
+		<summary lang="de">Favoriten-Skript</summary>
+		<summary lang="el">Script Αγαπημένων</summary>
+		<summary lang="en">Favourites script</summary>
+		<summary lang="en_NZ">Favourites script</summary>
+		<summary lang="en_US">Favorites script</summary>
+		<summary lang="es">Script de Favoritos</summary>
+		<summary lang="es_AR">Favoritos</summary>
+		<summary lang="fi">Suosikit skripti</summary>
+		<summary lang="fr">Script Favoris</summary>
+		<summary lang="fr_CA">Le script des favoris</summary>
+		<summary lang="gl">Script de Favoritos</summary>
+		<summary lang="he">סקריפט מועדפים</summary>
+		<summary lang="hr">Omiljene skripte</summary>
+		<summary lang="hu">Kedvencek script</summary>
+		<summary lang="id">Script favorit</summary>
+		<summary lang="it">Script preferiti</summary>
+		<summary lang="ko">즐겨찾기 스크립트</summary>
+		<summary lang="lt">Mėgstamiausių skriptas</summary>
+		<summary lang="nl">Favourietenscript</summary>
+		<summary lang="no">Favorittskript</summary>
+		<summary lang="pl">Skrypt ulubionych</summary>
+		<summary lang="pt">Script de Favoritos</summary>
+		<summary lang="pt_BR">Script Favoritos</summary>
+		<summary lang="ro">Script Favorite</summary>
+		<summary lang="ru">Скрипт "Избранное"</summary>
+		<summary lang="sv">Favoritskript</summary>
+		<summary lang="tr">Sık kullanılanlar betiği</summary>
+		<summary lang="zh">收藏夹脚本</summary>
+		<description lang="be">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="bg">Извлича информация от вашето меню "Любими" и показва допълнителни бутони в главното меню и подменюто.</description>
+		<description lang="ca">Obtenir els temes Preferits dels seus Kodi per omplir el menú Inici / submenú amb botons personalitzats.</description>
+		<description lang="cs">Přenese položky z Oblíbených do Home menu/submenu pod vlastní tlačítka. </description>
+		<description lang="da">Henter elementer fra din Kodi-favoritter til at fylde Hjemmemenu/undermenu med brugerbestemte knapper.</description>
+		<description lang="de">Stellt die Einträge aus der Kodi-Favoriten-Liste für benutzerdefinierte Verknüpfungen auf dem Startbildschirm zur Verfügung.</description>
+		<description lang="el">Χρησιμοποιεί αντικείμενα από τα αγαπημένα σας του Kodi για να συμπληρώσει τα προσαρμοσμένα πλήκτρα μενού/υπομενού της Αρχικής Οθόνης</description>
+		<description lang="en">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="en_NZ">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="en_US">Fetches item from your Kodi favorites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="es">Usar ítems de tus favoritos de Kodi para crear menús y submenús personalizados</description>
+		<description lang="es_AR">Obtiene medios de sus favoritos en Kodi para enriquecer su menu inicio y sub carpetas con botones personalizados</description>
+		<description lang="fi">Hakee Kodin suosikeista kohteita ja populoi sillä Koti-valikon / alivalikon muokatuilla napeilla.</description>
+		<description lang="fr">Récupère l'élément depuis les favoris Kodi pour remplir le menu/sous-menu de la page d'accueil avec des boutons personnalisés.</description>
+		<description lang="fr_CA">Récupère l'élément de vos favoris Kodi pour remplir le menu d'accueil/le sous-menu avec des boutons personnalisés.</description>
+		<description lang="gl">Obtén o elemento dos favoritos para estabelecer botóns personalizados no Menú Principal/Submenú</description>
+		<description lang="he">מייבא פריט מהמועדפים שלך לאכלוס תפריט/תת תפריט עם לחצנים מותאמים אישית במסך הבית.</description>
+		<description lang="hr">Dohvaća stavke iz vašeg Kodi 'Omiljeno' izbornika i popunjava Početni izbornik/podizbornik s prilagođenim tipkama.</description>
+		<description lang="hu">Összegyűjti az elemeket az Kodi kedvencek közül és a központi menü almenüjébe helyezi egyedi gombokkal.</description>
+		<description lang="id">Ambil item dari favorit Kodi Anda untuk mengisi menu/submenu Beranda dengan tombol suka-suka.</description>
+		<description lang="it">Preleva elementi dai tuoi preferiti per popolare il menù principale ed i sottomenù con bottoni personalizzato.</description>
+		<description lang="ko">Kodi 즐겨찾기에서 항목을 가져와 사용자 설정 버튼으로 홈 메뉴/서브메뉴에 표시합니다.</description>
+		<description lang="lt">Paima elementus iš Kodi mėgstamiausiųjų, kad užpildytų pagrindinio meniu/submeniu individualiais mygtukais.</description>
+		<description lang="nl">Haalt item van je Kodi favorieten op om in het Home menu/submenu te plaatsen via losse buttons.</description>
+		<description lang="no">Henter oppføringer fra favorittene dine i Kodi for å befolke hovedmenyen og undermenyen med egendefinerte knapper.</description>
+		<description lang="pl">Pobiera pozycje z twoich ulubionych w celu zapełnienia menu/podmenu niestandardowymi przyciskami.</description>
+		<description lang="pt">Obtém itens dos seus favoritos do Kodi para povoar o Menu Principal/submenu com botões personalizados.</description>
+		<description lang="pt_BR">Compila itens dos seus favoritos do Kodi para ocupar menus e submenus da tela inicial com botões personalizados.</description>
+		<description lang="ru">Извлекает информацию из Вашего меню "Избранное" и отображает дополнительные кнопки в главном меню и подменю.</description>
+		<description lang="sv">Hämtar objekt från dina Kodi-favoriter för att fylla ut hem-menyn med egna knappar.</description>
+		<description lang="zh">将 Kodi 收藏夹项目用于主界面菜单/子菜单的自定义按钮。</description>
+		<disclaimer lang="be">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="bg">Необходима е поддръжка от страна на облика за коректно функциониране</disclaimer>
+		<disclaimer lang="ca">Necessita Suport de la pell perquè sigui utilitzat correctament</disclaimer>
+		<disclaimer lang="cs">Pro správné použití je potřeba podpora skinu.</disclaimer>
+		<disclaimer lang="da">Behøver skinsupport for at blive brugt ordentligt</disclaimer>
+		<disclaimer lang="de">Benötigt Skin-Support um korrekt genutzt zu werden</disclaimer>
+		<disclaimer lang="el">Απαιτείται υποστήριξη από το κέλυφος για να χρησιμοποιηθεί σωστά</disclaimer>
+		<disclaimer lang="en">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="en_NZ">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="en_US">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="es">Necesita ser soportado por el skin para poder funcionar correctamente</disclaimer>
+		<disclaimer lang="es_AR">Necesita soporte de mascara para ser usada correctamente</disclaimer>
+		<disclaimer lang="fi">Toimiakseen kunnolla, skinin tulee tukea tätä</disclaimer>
+		<disclaimer lang="fr">Nécessite le support du thème pour qu'il soit utilisé correctement</disclaimer>
+		<disclaimer lang="fr_CA">Le prise en charge de l'habillage est nécessaire pour qu'il soit utilisé correctement</disclaimer>
+		<disclaimer lang="gl">Precisa da axuda da pel para que sexa utilizado correctamente</disclaimer>
+		<disclaimer lang="he">להפעלה כראוי נדרשת תמיכה במעטפת</disclaimer>
+		<disclaimer lang="hr">Zahtijeva podršku presvlake za ispravno korištenje</disclaimer>
+		<disclaimer lang="hu">Felszín támogatás szükséges a helyes működéshez</disclaimer>
+		<disclaimer lang="id">Memerlukan dukungan kulit untuk dapat digunakan dengan baik</disclaimer>
+		<disclaimer lang="it">E' necessario che lo skin supporti lo script per funzionare correttamente</disclaimer>
+		<disclaimer lang="ko">스킨에서 지원해야 합니다</disclaimer>
+		<disclaimer lang="lt">Reikalingas teminės išvaizdos palaikymas tinkamam naudojimui</disclaimer>
+		<disclaimer lang="nl">Heeft skinondersteuning nodig om correct te werken</disclaimer>
+		<disclaimer lang="no">Krever skallstøtte for å fungere riktig</disclaimer>
+		<disclaimer lang="pl">Wymagane wsparcie skórki w celu poprawnego działania</disclaimer>
+		<disclaimer lang="pt">Necessita de um tema compatível para funcionar correctamente.</disclaimer>
+		<disclaimer lang="pt_BR">Necessita de suporte da skin para ser usado adequadamente</disclaimer>
+		<disclaimer lang="ro">Necesită suport din partea costumului pentru a fi folosit cum trebuie</disclaimer>
+		<disclaimer lang="ru">Необходима поддержка скинов для корректного отображения</disclaimer>
+		<disclaimer lang="sl">Potrebuje podporo preobleke, da bo uporabljeno pravilno.</disclaimer>
+		<disclaimer lang="sv">Behöver skalsupport för att kunna användas riktigt</disclaimer>
+		<disclaimer lang="tr">Düzgün kullanılabilmesi için dış görünüm desteğine ihtiyacınız var</disclaimer>
+		<disclaimer lang="zh">正常使用需要皮肤支持</disclaimer>
+		<language></language>
 		<platform>all</platform>
-		<forum>http://forum.xbmc.org/showthread.php?tid=114671</forum>
-		<source>https://code.google.com/p/ronie/source/</source>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2</license>
+		<forum>http://forum.kodi.tv/showthread.php?tid=114671</forum>
+		<website></website>
+		<email></email>
+		<source>https://github.com/ronie/script.favourites</source>
 	</extension>
 </addon>
 
@@ -5113,82 +5539,82 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 </addon>
 
 <addon id="script.globalsearch" name="Global Search" version="6.0.6" provider-name="ronie">
-  <requires>
-    <import addon="xbmc.python" version="2.24.0" />
-    <import addon="script.module.simplejson" version="3.3.0" />
-  </requires>
-  <extension point="xbmc.python.script" library="default.py">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="bg">Търси в библиотеката Ви.</summary>
-    <summary lang="ca">Cerca a la teva biblioteca.</summary>
-    <summary lang="cs">Hledej v knihovně</summary>
-    <summary lang="de">Durchsuchen Sie Ihre Bibliothek.</summary>
-    <summary lang="el">Αναζήτηση στη Συλλογή σας.</summary>
-    <summary lang="en">Search your library.</summary>
-    <summary lang="en_NZ">Search your library.</summary>
-    <summary lang="en_US">Search your library.</summary>
-    <summary lang="es">Busca tu biblioteca.</summary>
-    <summary lang="fr">Chercher dans la médiathèque.</summary>
-    <summary lang="fr_CA">Chercher dans votre bibliothèque</summary>
-    <summary lang="gl">Buscar a súa biblioteca.</summary>
-    <summary lang="he">חיפוש בספריית המדיה.</summary>
-    <summary lang="hr">Pretražite svoju zbirku.</summary>
-    <summary lang="hu">Keresés a médiatárban</summary>
-    <summary lang="id">Cari pustaka Anda.</summary>
-    <summary lang="it">Ricerca nella la tua libreria.</summary>
-    <summary lang="ko">라이브러리 찾기</summary>
-    <summary lang="lt">Ieškoti bibliotekoje.</summary>
-    <summary lang="nl">Zoek in je bibliotheek.</summary>
-    <summary lang="no">Søk i biblioteket ditt</summary>
-    <summary lang="pl">Przeszukaj swoją bibliotekę</summary>
-    <summary lang="pt">Faça buscas na sua biblioteca.</summary>
-    <summary lang="pt_BR">Pesquise sua coleção.</summary>
-    <summary lang="ro">Căutați în mediateca dumneavoastră.</summary>
-    <summary lang="ru">Поиск в вашей медиатеке.</summary>
-    <summary lang="sl">Iščite v svoji knjižnici.</summary>
-    <summary lang="sv">Sök i ditt bibliotek.</summary>
-    <summary lang="tr">Kitaplığını ara</summary>
-    <summary lang="zh">资料库搜索</summary>
-    <description lang="bg">Добавката може да намери всеки елемент във вашата видео и музикална библиотека.</description>
-    <description lang="ca">Aquest complement pot trobat qualsevol article en la teva biblioteca de vídeo i música</description>
-    <description lang="cs">Tento dopněk dokáže najít libovolnou položku ve vaší audio a video knihovně.</description>
-    <description lang="de">Dieses Add-on kann jeden Eintrag in Ihrer Video- und Musikbibliothek finden.</description>
-    <description lang="el">Αυτό το πρόσθετο μπορεί να βρει κάθε αντικείμενο στις συλλογές σας.</description>
-    <description lang="en">This addon can find any item in your video and music library.</description>
-    <description lang="en_NZ">This addon can find any item in your video and music library.</description>
-    <description lang="en_US">This addon can find any item in your video and music library.</description>
-    <description lang="es">Este complemento puede encontrar cualquier elemento en tu biblioteca de vídeo y música.</description>
-    <description lang="fr">Cette extension peut trouver tout élément dans la vidéothèque et l'audiothèque.</description>
-    <description lang="fr_CA">Cet addiciel peut trouver tout élément dans votre vidéothèque et dans votre audiothèque.</description>
-    <description lang="gl">Este complemento pode atopar calquera elemento na súa biblioteca de medios.</description>
-    <description lang="he">הרחבה זו יכולה למצוא כל פריט בספריות הווידאו והמוזיקה.</description>
-    <description lang="hr">Ovaj dodatak može pronaći svaku stavku u vašoj videoteci ili fonoteci.</description>
-    <description lang="hu">Ez a kiegészítő bármely elemet megtalálja a videó és audió médiatárban.</description>
-    <description lang="id">Addon ini dapat mencari item apa saja di pustaka video dan musik Anda.</description>
-    <description lang="it">Questo addon può trovare ogni elemento nella tua libreria video ed in quella musicale.</description>
-    <description lang="ko">비디오와 음악 라이브러리의 모든 항목을 검색합니다.</description>
-    <description lang="lt">Šis priedas gali rasti bet kokį elementą jūsų vaizdo ir garso bibliotekoje.</description>
-    <description lang="nl">Deze addon kan elk item in je video- en muziekbibliotheken vinden.</description>
-    <description lang="no">Dette tillegget kan finne hva som helst i ditt film eller musikk bibliotek.</description>
-    <description lang="pl">Ten plugin może odnaleźć dowolną pozycję w twojej bibliotece wideo oraz muzycznej.</description>
-    <description lang="pt">Este addon pode encontrar qualquer item na sua biblioteca de vídeos e de músicas.</description>
-    <description lang="pt_BR">Este addon pode encontrar qualquer item na sua coleção de vídeos e música.</description>
-    <description lang="ro">Acest supliment poate găsi orice element în mediateca dumneavoastră video și audio.</description>
-    <description lang="ru">Это дополнение поможет найти любую запись в вашей медиатеке.</description>
-    <description lang="sl">Ta dodatek lahko poišče katerokoli podatek v vaši knjižnici filmov in glasbe.</description>
-    <description lang="sv">Detta tillägg kan hitta vilket objekt som helst i ditt video och musikbibliotek.</description>
-    <description lang="tr">Bu eklenti video ve müzik kitaplığınızdaki herhangi bir öğeyi bulabilir.</description>
-    <description lang="zh">此插件搜索你的视频和音乐资料库项目。</description>
-    <language />
-    <platform>all</platform>
-    <license>GNU GENERAL PUBLIC LICENSE Version 2</license>
-    <forum>http://forum.kodi.tv/showthread.php?tid=109301</forum>
-    <website />
-    <email />
-    <source>https://github.com/ronie/script.globalsearch/</source>
-  </extension>
+	<requires>
+		<import addon="xbmc.python" version="2.24.0"/>
+		<import addon="script.module.simplejson" version="3.3.0"/>
+	</requires>
+	<extension point="xbmc.python.script" library="default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="bg">Търси в библиотеката Ви.</summary>
+		<summary lang="ca">Cerca a la teva biblioteca.</summary>
+		<summary lang="cs">Hledej v knihovně</summary>
+		<summary lang="de">Durchsuchen Sie Ihre Bibliothek.</summary>
+		<summary lang="el">Αναζήτηση στη Συλλογή σας.</summary>
+		<summary lang="en">Search your library.</summary>
+		<summary lang="en_NZ">Search your library.</summary>
+		<summary lang="en_US">Search your library.</summary>
+		<summary lang="es">Busca tu biblioteca.</summary>
+		<summary lang="fr">Chercher dans la médiathèque.</summary>
+		<summary lang="fr_CA">Chercher dans votre bibliothèque</summary>
+		<summary lang="gl">Buscar a súa biblioteca.</summary>
+		<summary lang="he">חיפוש בספריית המדיה.</summary>
+		<summary lang="hr">Pretražite svoju zbirku.</summary>
+		<summary lang="hu">Keresés a médiatárban</summary>
+		<summary lang="id">Cari pustaka Anda.</summary>
+		<summary lang="it">Ricerca nella la tua libreria.</summary>
+		<summary lang="ko">라이브러리 찾기</summary>
+		<summary lang="lt">Ieškoti bibliotekoje.</summary>
+		<summary lang="nl">Zoek in je bibliotheek.</summary>
+		<summary lang="no">Søk i biblioteket ditt</summary>
+		<summary lang="pl">Przeszukaj swoją bibliotekę</summary>
+		<summary lang="pt">Faça buscas na sua biblioteca.</summary>
+		<summary lang="pt_BR">Pesquise sua coleção.</summary>
+		<summary lang="ro">Căutați în mediateca dumneavoastră.</summary>
+		<summary lang="ru">Поиск в вашей медиатеке.</summary>
+		<summary lang="sl">Iščite v svoji knjižnici.</summary>
+		<summary lang="sv">Sök i ditt bibliotek.</summary>
+		<summary lang="tr">Kitaplığını ara</summary>
+		<summary lang="zh">资料库搜索</summary>
+		<description lang="bg">Добавката може да намери всеки елемент във вашата видео и музикална библиотека.</description>
+		<description lang="ca">Aquest complement pot trobat qualsevol article en la teva biblioteca de vídeo i música</description>
+		<description lang="cs">Tento dopněk dokáže najít libovolnou položku ve vaší audio a video knihovně.</description>
+		<description lang="de">Dieses Add-on kann jeden Eintrag in Ihrer Video- und Musikbibliothek finden.</description>
+		<description lang="el">Αυτό το πρόσθετο μπορεί να βρει κάθε αντικείμενο στις συλλογές σας.</description>
+		<description lang="en">This addon can find any item in your video and music library.</description>
+		<description lang="en_NZ">This addon can find any item in your video and music library.</description>
+		<description lang="en_US">This addon can find any item in your video and music library.</description>
+		<description lang="es">Este complemento puede encontrar cualquier elemento en tu biblioteca de vídeo y música.</description>
+		<description lang="fr">Cette extension peut trouver tout élément dans la vidéothèque et l'audiothèque.</description>
+		<description lang="fr_CA">Cet addiciel peut trouver tout élément dans votre vidéothèque et dans votre audiothèque.</description>
+		<description lang="gl">Este complemento pode atopar calquera elemento na súa biblioteca de medios.</description>
+		<description lang="he">הרחבה זו יכולה למצוא כל פריט בספריות הווידאו והמוזיקה.</description>
+		<description lang="hr">Ovaj dodatak može pronaći svaku stavku u vašoj videoteci ili fonoteci.</description>
+		<description lang="hu">Ez a kiegészítő bármely elemet megtalálja a videó és audió médiatárban.</description>
+		<description lang="id">Addon ini dapat mencari item apa saja di pustaka video dan musik Anda.</description>
+		<description lang="it">Questo addon può trovare ogni elemento nella tua libreria video ed in quella musicale.</description>
+		<description lang="ko">비디오와 음악 라이브러리의 모든 항목을 검색합니다.</description>
+		<description lang="lt">Šis priedas gali rasti bet kokį elementą jūsų vaizdo ir garso bibliotekoje.</description>
+		<description lang="nl">Deze addon kan elk item in je video- en muziekbibliotheken vinden.</description>
+		<description lang="no">Dette tillegget kan finne hva som helst i ditt film eller musikk bibliotek.</description>
+		<description lang="pl">Ten plugin może odnaleźć dowolną pozycję w twojej bibliotece wideo oraz muzycznej.</description>
+		<description lang="pt">Este addon pode encontrar qualquer item na sua biblioteca de vídeos e de músicas.</description>
+		<description lang="pt_BR">Este addon pode encontrar qualquer item na sua coleção de vídeos e música.</description>
+		<description lang="ro">Acest supliment poate găsi orice element în mediateca dumneavoastră video și audio.</description>
+		<description lang="ru">Это дополнение поможет найти любую запись в вашей медиатеке.</description>
+		<description lang="sl">Ta dodatek lahko poišče katerokoli podatek v vaši knjižnici filmov in glasbe.</description>
+		<description lang="sv">Detta tillägg kan hitta vilket objekt som helst i ditt video och musikbibliotek.</description>
+		<description lang="tr">Bu eklenti video ve müzik kitaplığınızdaki herhangi bir öğeyi bulabilir.</description>
+		<description lang="zh">此插件搜索你的视频和音乐资料库项目。</description>
+		<language></language>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2</license>
+		<forum>http://forum.kodi.tv/showthread.php?tid=109301</forum>
+		<website></website>
+		<email></email>
+		<source>https://github.com/ronie/script.globalsearch/</source>
+	</extension>
 </addon>
 
 <addon id="script.hdfull2kd" name="[COLOR FFC0392B]HDFULL[/COLOR]2KD - TVGUIA" version="1.2.0" provider-name="mancuniancol">
