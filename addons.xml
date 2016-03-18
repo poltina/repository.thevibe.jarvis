@@ -7847,7 +7847,7 @@ level.</description>
 
 <addon id="service.subtitles.torec"
        name="Torec"
-       version="1.0.5"
+       version="1.0.6"
        provider-name="slmosl">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
