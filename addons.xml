@@ -1,57 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="context.artwork.downloader.auto" name="Download All Artwork - Artwork Downloader" version="1.0.1" provider-name="rmrector">
-	<requires>
-		<import addon="xbmc.python" version="2.20.0" />
-		<import addon="script.artwork.downloader" version="12.0.29" />
-	</requires>
-	<extension point="kodi.context.item" library="context.py">
-		<item>
-			<label>32000</label>
-			<visible>Container.Content(tvshows)|Container.Content(movies)|Container.Content(musicvideos)</visible>
-			<parent>kodi.core.manage</parent>
-		</item>
-	</extension>
-	<extension point="kodi.addon.metadata">
-		<summary lang="en">Download all missing artwork configured in Artwork Downloader for the selected item.</summary>
-		<description lang="en">Download all missing artwork configured in Artwork Downloader for the selected item. Added to the 'Manage...' context menu. The add-on Artwork Downloader does all the work, this just runs it for the selected item.</description>
-		<disclaimer lang="en" />
-		<platform>all</platform>
-		<language />
-		<website>https://github.com/rmrector/context.artwork.downloader.auto</website>
-		<forum />
-		<email />
-		<license>The MIT License</license>
-		<source>https://github.com/rmrector/context.artwork.downloader.auto</source>
-	</extension>
-</addon>
-
-<addon id="context.artwork.downloader.gui" name="Select Artwork to Download - Artwork Downloader" version="1.0.1" provider-name="rmrector">
-	<requires>
-		<import addon="xbmc.python" version="2.20.0" />
-		<import addon="script.artwork.downloader" version="12.0.29" />
-	</requires>
-	<extension point="kodi.context.item" library="context.py">
-		<item>
-			<label>32000</label>
-			<visible>Container.Content(tvshows)|Container.Content(movies)|Container.Content(musicvideos)</visible>
-			<parent>kodi.core.manage</parent>
-		</item>
-	</extension>
-	<extension point="kodi.addon.metadata">
-		<summary lang="en">Show Artwork Downloader GUI for the selected item.</summary>
-		<description lang="en">Show Artwork Downloader GUI for the selected item. Added to the 'Manage...' context menu. The add-on Artwork Downloader does all the work, this just runs it for the selected item.</description>
-		<disclaimer lang="en" />
-		<platform>all</platform>
-		<language />
-		<website>https://github.com/rmrector/context.artwork.downloader.gui</website>
-		<forum />
-		<email />
-		<license>The MIT License</license>
-		<source>https://github.com/rmrector/context.artwork.downloader.gui</source>
-	</extension>
-</addon>
-
 <addon id="context.extendedinfo.dialog" name="ExtendedInfo Script - Open dialog" version="1.0.0" provider-name="phil65">
   <requires>
     <import addon="xbmc.python" version="2.20.0"/>
@@ -91,36 +39,6 @@
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
     <forum></forum>
     <source></source>
-  </extension>
-</addon>
-
-<addon id="context.item.extras" name="Extras" version="1.1.0" provider-name="takoi">
-  <requires>
-    <import addon="xbmc.python" version="2.20.0"/>
-    <import addon="script.module.routing" version="0.2.0"/>
-  </requires>
-  <extension point="kodi.context.item" library="addon.py">
-    <item>
-      <label>30000</label>
-      <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) |
-        StringCompare(ListItem.dbtype,season)
-      </visible>
-    </item>
-  </extension>
-  <extension point="xbmc.python.pluginsource" library="plugin.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="kodi.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">View extras and special features</summary>
-    <description lang="en">Provides an easy way to browse and view movie and TV show extras. Extras can be accessed from the context menu in the video library.
-
-By default, the add-on will look in the "Extras" sub-folder for content (can be changed in settings).
-
-Tip: for how to avoid extras beings scraped to library, see http://kodi.wiki/view/Add-on:Extras</description>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-    <forum></forum>
-    <source>https://github.com/tamland/kodi-addon-extras</source>
   </extension>
 </addon>
 
@@ -215,156 +133,6 @@ Tip: for how to avoid extras beings scraped to library, see http://kodi.wiki/vie
     <platform>all</platform>
     <website>http://tvaddons.ag/</website>
     <forum>http://forums.tvaddons.ag/forums/180-TKNORRIS-RELEASE-REPOSITORY</forum>
-  </extension>
-</addon>
-
-<addon id="context.skinshortcuts.addtomenu" name="Skin Shortcuts - Add To Menu" version="1.0.0" provider-name="BobCratchett">
-  <requires>
-    <import addon="xbmc.python" version="2.20.0"/>
-    <import addon="script.skinshortcuts" version="1.0.7"/>
-  </requires>
-  <extension point="kodi.context.item" library="addon.py">
-    <item>
-      <label>32000</label>
-      <visible>!StringCompare(ListItem.Label,..) + ListItem.IsFolder</visible>
-    </item>
-  </extension>
-  <extension point="kodi.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en_GB">Add folders to Skin Shortcuts managed menus</summary>
-    <description lang="en_GB">Add folders to Skin Shortcuts managed menus directly from the context menu. Requires skin support.</description>
-    <license>GNU General Public License, v2</license>
-    <forum></forum>
-    <source>https://github.com/Ignoble61/context.skinshortcuts.addtomenu</source>
-  </extension>
-</addon>
-
-<addon id="context.trakt.addtowatchlist" name="Trakt - Add to watchlist button" version="1.0.1" provider-name="Razzeee">
-  <requires>
-    <import addon="xbmc.python" version="2.20.0"/>
-    <import addon="script.trakt" version="3.0.2"/>
-  </requires>
-    <extension point="kodi.context.item" library="addon.py">
-      <item>
-        <label>32000</label>
-        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
-      </item>
-    </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Add Trakt add to watchlist button to context menu in video library</summary>>
-    <description lang="en">Add Trakt add to watchlist button to the context menu in your library.</description>
-    <platform>all</platform>
-    <forum></forum>
-    <source>https://github.com/Razzeee/context.trakt.addtowatchlist</source>
-  </extension>
-</addon>
-
-<addon id="context.trakt.contextmenu" name="Trakt - Contextmenu" version="1.0.1" provider-name="Razzeee">
-  <requires>
-    <import addon="xbmc.python" version="2.20.0"/>
-    <import addon="script.trakt" version="3.0.2"/>
-  </requires>
-    <extension point="kodi.context.item" library="addon.py">
-      <item>
-        <label>32000</label>
-        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
-      </item>
-    </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Adds a Trakt contextmenu button to context menu in your videolibrary</summary>
-    <description lang="en">Add Trakt contextmenu button to context menu in library. This contextmenu will offer "Add to wachlist", "Rate this movie", "Toggle watched" and "Synchronize library".</description>
-    <platform>all</platform>
-    <forum></forum>
-    <source>https://github.com/Razzeee/context.trakt.contextmenu/</source>
-  </extension>
-</addon>
-
-<addon id="context.trakt.rate" name="Trakt - Rating button" version="1.0.3" provider-name="Razzeee">
-  <requires>
-    <import addon="xbmc.python" version="2.20.0"/>
-    <import addon="script.trakt" version="3.0.2"/>
-  </requires>
-    <extension point="kodi.context.item" library="addon.py">
-      <item>
-        <label>32000</label>
-        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
-      </item>
-    </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="de">Trakt-Bewertungsschaltfläche zum Kontextmenü in der Bibliothek hinzufügen</summary>
-    <summary lang="en">Add Trakt rating button to context menu in library</summary>
-    <summary lang="en_NZ">Add Trakt rating button to context menu in library</summary>
-    <summary lang="en_US">Add Trakt rating button to context menu in library</summary>
-    <summary lang="fr">Ajouter le bouton d'évaluation trakt au menu contextuel dans la médiathèque</summary>
-    <summary lang="fr_CA">Ajouter un bouton d'évaluation Trakt au menu contextuel de la vidéothèque</summary>
-    <summary lang="gl">Engadir o botón de valoración ao menú contextual da biblioteca</summary>
-    <summary lang="he">הוסף כפתור דירוג Trakt לתפריט הצדדי בספריה</summary>
-    <summary lang="hr">Dodaj tipku Trakt ocjene u kontekstni izbornik zbirke</summary>
-    <summary lang="hu">Trakt értékelés gomb a menüben</summary>
-    <summary lang="it">Aggiunge l'opzione "Vota" di Trakt al menu' contestuale della libreria.</summary>
-    <summary lang="ko">라이브러리 컨텍스트 메뉴에 Trakt 평가 버튼 추가</summary>
-    <summary lang="lt">Pridėti Trakt.tv reitingo mygtuką į bibliotekos kontekstinį meniu</summary>
-    <summary lang="nl">Voeg Trakt waardering knop naar context menu in bibliotheek</summary>
-    <summary lang="no">Legg til Trakt vurdering i bibliotekets hurtigmeny</summary>
-    <summary lang="pl">Dodaje przycisk 'Trakt - Oceń' do menu kontekstowego biblioteki</summary>
-    <summary lang="pt">Adicionar botão de classificação ao menu de contexto na biblioteca</summary>
-    <summary lang="pt_BR">Adicionar botão de avaliação do Trakt para o menu de contexto na biblioteca</summary>
-    <description lang="en">Add Trakt rating button to the context menu in your library.</description>
-    <forum></forum>
-    <source>https://github.com/Razzeee/context.trakt.rate</source>
-  </extension>
-</addon>
-
-<addon id="context.trakt.watched" name="Trakt - Watched button" version="1.0.2" provider-name="Razzeee">
-  <requires>
-    <import addon="xbmc.python" version="2.20.0"/>
-    <import addon="script.trakt" version="3.0.2"/>
-  </requires>
-    <extension point="kodi.context.item" library="addon.py">
-      <item>
-        <label>32000</label>
-        <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,season) | StringCompare(ListItem.dbtype,episode)</visible>
-      </item>
-    </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="de">Trakt-Schaltfläche für Gesehene zum Kontextmenü in der Bibliothek hinzufügen.</summary>
-    <summary lang="en">Add Trakt watched button to context menu in library</summary>
-    <summary lang="en_NZ">Add Trakt watched button to context menu in library</summary>
-    <summary lang="en_US">Add Trakt watched button to context menu in library</summary>
-    <summary lang="fr">Ajouter le bouton Trakt Vu au menu contextuel de la médiathèque</summary>
-    <summary lang="fr_CA">Ajouter un bouton Trakt « Regardé » au menu contextuel de la vidéothèque. </summary>
-    <summary lang="gl">Engadir o botón de 'visto' no menú contextual da biblioteca</summary>
-    <summary lang="he">הוסף כפתור נצפה של Trakt לתפריט הצדדי בספריה</summary>
-    <summary lang="hu">Trakt értékelés gomb hozzáadása a menühöz</summary>
-    <summary lang="it">Aggiunge l'opzione "Già visto" di Trakt al menu' contestuale della libreria.</summary>
-    <summary lang="ko">라이브러리 컨텍스트 메뉴에 Trakt 시청함 버튼 추가</summary>
-    <summary lang="lt">Pridėti Trakt.tv peržiūrėjimo būsenos mygtuką į bibliotekos kontekstinį meniu</summary>
-    <summary lang="nl">Voeg Trakt bekeken knop aan context menu in bibliotheek</summary>
-    <summary lang="no">Legg til Trakt har-sett knapp i bibliotekets hurtigmeny</summary>
-    <summary lang="pl">Dodaje przycisk 'Trakt - Oznacz jako obejrzane' do menu kontekstowego biblioteki</summary>
-    <summary lang="pt">Adicionar botão Visto do Trakt para o menu de contexto</summary>
-    <summary lang="pt_BR">Adicionar o botão assistido Trakt para o menu de contexto na biblioteca</summary>
-    <description lang="de">Trakt-Schaltfläche für Gesehene zum Kontextmenü in der Bibliothek hinzufügen. Benötigt script.trakt installiert und aktiviert.</description>
-    <description lang="en">Add Trakt watched button to context menu in library. Needs script.trakt installed and activated.</description>
-    <description lang="en_NZ">Add Trakt watched button to context menu in library. Needs script.trakt installed and activated.</description>
-    <description lang="en_US">Add Trakt watched button to context menu in library. Needs script.trakt installed and activated.</description>
-    <description lang="fr">Ajoute le bouton Trakt Vu au menu contextuel de la médiathèque. Nécessite l'installation et l'activation de script.trakt.</description>
-    <description lang="fr_CA">Ajouter un bouton Trakt « Regardé » au menu contextuel de la vidéothèque. Script.trakt doit être installé et activé.</description>
-    <description lang="gl">Engadir o botón de 'visto' no menú contextual da biblioteca. É necesario ter instalado e activado script.trakt</description>
-    <description lang="he">הוסף כפתור נצפה של Trakt לתפריט הצדדי בספריה. צריך את התוסף Trakt מותקן ומופעל.</description>
-    <description lang="hr">Dodaj tipku Trakt odgledano u kontekstni izbornik zbirke. Potrebno je instalirati i aktivirati script.trakt .</description>
-    <description lang="hu">Trakt értékelés gomb hozzáadása a menühöz. A script.trakt telepítése és aktiválása szükséges hozzá.</description>
-    <description lang="it">Aggiunge l'opzione "Già visto" di Trakt al menu' contestuale della libreria. Necessita di script.trakt installato ed attivato.</description>
-    <description lang="ko">라이브러리 컨텍스트 메뉴에 Trakt 시청한 버튼을 추가합니다. script.trakt 애드온 설치가 필요합니다.</description>
-    <description lang="lt">Pridėti Trakt.tv peržiūrėjimo būsenos mygtuką į bibliotekos kontekstinį meniu. Reikia, kad būtų įdiegtas ir aktyvuotas script.trakt.</description>
-    <description lang="nl">Voeg Trakt waardering knop naar context menu in bibliotheek. Vereist dat script.trakt is geïnstalleerd en geactiveerd.</description>
-    <description lang="no">Legg til Trakt har-sett knapp i bibliotekets hurtigmeny. Script.trakt må være installert og aktivert.</description>
-    <description lang="pl">Dodaje przycisk 'Trakt - Oznacz jako obejrzane' do menu kontekstowego biblioteki. Wymaga zainstalowanego i aktywnego dodatku Trakt.</description>
-    <description lang="pt">Adicionar botão Visto do Trakt para o menu de contexto. É necessário ter instalado e ativo o script.trakt.</description>
-    <description lang="pt_BR">Adiciona o botão assistido Trakt no menu de contexto na biblioteca. Necessita o script Trakt instalado e ativado.</description>
-    <platform>all</platform>
-    <forum></forum>
-    <source></source>
   </extension>
 </addon>
 
@@ -2177,28 +1945,6 @@ this is an unofficial addon. please don't ask for support in openelec forum / ir
     <description lang="en">Universal Parental Control is built to work with videos played from your Kodi library
 and ALL addons. Addon developers do not need to change anything and Universal PC works even if metadata is disabled.
 Highly configurable: Set your PIN, set your watershed time, exclude addons if required, exclude modes if required.</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.program.VibeW" name="Vibe Wizard" version="2.9.8" provider-name="The-vibe.co.il">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" optional="false"/>
-    <import addon="repository.thevibe" version="3.2.0" optional="false"/>
-    <import addon="service.EMupdater" version="1.0.8" optional="false"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video executable</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Vibe Wizard</summary>
-    <description lang="en">In this wizard you will find the latest Vibe build</description>
-    <description lang="he">קודי בלחיצה, כל מה שאתם צריכים נמצא כאן</description>
-    <disclaimer lang="en">Visit The-vibe.co.il for more info.</disclaimer>
-    <disclaimer lang="he">כנסו לאתר the-vibe.co.il </disclaimer>
-    <forum>http://the-vibe.co.il</forum>
-    <source>http://the-vibe.co.il</source>
-    <website>http://the-vibe.co.il</website>
     <platform>all</platform>
   </extension>
 </addon>
@@ -4959,15 +4705,26 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
-<addon id="repository.thevibe" name="TheVibe Team Repository" version="3.3.0" provider-name="TheVibe Team">
-  <extension point="xbmc.addon.repository" name=".TheVibe Repository ">
-    <info compressed="false">https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/addons.xml</info>
-    <checksum>https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/addons.xml.md5</checksum>
-    <datadir zip="true">https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/</datadir>
-  </extension>
+<addon id="repository.thevibe" name="The-Vibe Team Repository"	version="4.0.0" provider-name="The-Vibe Team">
+  <requires>
+    <import addon="xbmc.addon" version="12.0.0"/>
+  </requires>
+  <extension point="xbmc.addon.repository" name=":The-Vibe Team Repository">
+       <info compressed="true">https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/addons.xml</info>
+      <checksum>https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/addons.xml.md5</checksum>
+      <datadir zip="true">https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/zips/</datadir>
+      <hashes>false</hashes>
+   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>The-Vibe Team Repository</summary>
-    <description>The-Vibe Team Repository</description>
+    <summary lang="en_US">Install Add-ons from The Vibe Team</summary>
+    <summary lang="he_IL">התקנת הרחבות מ־The Vibe Team</summary>
+    <summary lang="ru_RU">Установить дополнения с сайта The Vibe Team</summary>
+    <description lang="en_US">Download and install add-ons from The Vibe Team add-on repository.[CR]  By using the official Repository you will be able to take advantage of our extensive file mirror service to help get you faster downloads from a region close to you.[CR]  All add-ons on this repository have under gone basic testing, if you find a broken or not working add-on please report it to The Vibe Team so we can take any action needed.</description>
+    <description lang="he_IL">הורדה והתקנת הרחבות ממאגר הרחבות The Vibe Team הרשמי.[CR]  שימוש במאגר הרשמי מאפשר לנצל את שירות שיקוף הקבצים שלThe Vibe Team העוזר להוריד מהר יותר מהשרת הקרוב ביותר.[CR] כל ההרחבות במאגר זה עברו בדיקה בסיסית. יש לדווח לצוות הפיתוח של The Vibe Team על כל הרחבה שנמצאה כלא תקינה או שלא עובדת ע"מ שתתבצע הפעולה המתאימה.</description>
+    <description lang="ru_RU">Загружайте и устанавливайте обновления из официального репозитория The Vibe Team[CR]Используя официальный репозиторий, вы сможете воспользоваться преимуществами распределенного хранилища для быстрой загрузки файлов с ближайшего к вам сервера.[CR]Все дополнения в данном репозитории прошли тестирование. Если вы обнаружили нерабочее дополнение, сообщите об этом разработчикам The Vibe Team.</description>
+    <disclaimer lang="en_US">Team-Kodi did not make all the add-ons on this repository and are not responsible for their content</disclaimer>
+    <disclaimer lang="he_IL">צוות הפיתוח של The Vibe Team לא יצר את כל ההרחבות שבמאגר זה ואיננו אחראי על תוכנן</disclaimer>
+    <disclaimer lang="ru_RU">Разработчики The Vibe Team не являются авторами всех дополнений в данном репозитории и не несут ответственность за их содержимое.</disclaimer>
     <platform>all</platform>
     <website>http://www.the-vibe.co.il</website>
   </extension>
@@ -5183,32 +4940,6 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
-<addon
-  id="resource.language.en_us"
-  version="2.0.1"
-  name="English (US)"
-  provider-name="Team Kodi">
-  <requires>
-    <import addon="kodi.resource" version="1.0.0"/>
-  </requires>
-  <extension
-    point="kodi.resource.language"
-    locale="en_US">
-    <charsets>
-      <gui>CP1252</gui>
-      <subtitle>CP1252</subtitle>
-    </charsets>
-    <sorttokens>
-      <token>The</token>
-    </sorttokens>
-  </extension>
-  <extension point="kodi.addon.metadata">
-    <summary lang="en">English (US) language pack</summary>
-    <description lang="en">English (US) version of all texts used in Kodi.</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="resource.language.he_il" version="2.0.2" name="Hebrew" provider-name="Team Kodi">
   <requires>
     <import addon="kodi.resource" version="1.0.0" />
@@ -5222,49 +4953,6 @@ http://www.hometheater.co.il</description>
   <extension point="kodi.addon.metadata">
     <summary lang="en">Hebrew language pack</summary>
     <description lang="en">Hebrew version of all texts used in Kodi.</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon
-  id="resource.language.ru_ru"
-  version="2.0.3"
-  name="Russian"
-  provider-name="Team Kodi">
-  <requires>
-    <import addon="kodi.resource" version="1.0.0"/>
-  </requires>
-  <extension
-    point="kodi.resource.language"
-    locale="ru_RU">
-    <charsets>
-      <gui unicodefont="true">utf-8</gui>
-      <subtitle>CP1251</subtitle>
-    </charsets>
-     <sorttokens>
-      <token>The</token>
-      <token>A</token>
-      <token>An</token>
-      <token>Der</token>
-      <token>Die</token>
-      <token>Das</token>
-      <token>Le</token>
-      <token>La</token>
-      <token>Les</token>
-      <token>Un</token>
-      <token>Une</token>
-      <token>Des</token>
-      <token>Il</token>
-      <token>Lo</token>
-      <token>La</token>
-      <token>Gli</token>
-      <token>Uno</token>
-      <token>Una</token>
-    </sorttokens>
-  </extension>
-  <extension point="kodi.addon.metadata">
-    <summary lang="en">Russian language pack</summary>
-    <description lang="en">Russian version of all texts used in Kodi.</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -7898,21 +7586,6 @@ level.</description>
     <source>https://github.com/amet/service.autosubs</source>
     <forum>http://forum.xbmc.org/showthread.php?tid=198973</forum>
     <email>schumi2004@gmail.com</email>
-  </extension>
-</addon>
-
-<addon id="service.EMupdater"
-       name="EMupdater service"
-       version="1.0.8"
-       provider-name="The-Vibe.co.il">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="repository.thevibe" version="2.0" optional="false"/>
-  </requires>
-  <extension point="xbmc.service" library="service.py" start="[login|startup]" />
-  <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en"></summary>
   </extension>
 </addon>
 
