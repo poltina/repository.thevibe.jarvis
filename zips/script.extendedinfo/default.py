@@ -13,25 +13,25 @@ class Main:
 
     def __init__(self):
         xbmc.log("version %s started" % ADDON_VERSION)
-        HOME.setProperty("extendedinfo_running", "true")
+        xbmc.executebuiltin('SetProperty(extendedinfo_running,True,home)')
         self._parse_argv()
-        for info in self.infos:
-            listitems = start_info_actions(info, self.params)
-            pass_list_to_skin(name=info,
-                              data=listitems,
-                              prefix=self.params.get("prefix", ""),
-                              limit=self.params.get("limit", 20))
-        if not self.infos:
+        if self.infos:
+            start_info_actions(self.infos, self.params)
+        else:
             HOME.setProperty('infodialogs.active', "true")
             from resources.lib.WindowManager import wm
             wm.open_video_list()
             HOME.clearProperty('infodialogs.active')
-        HOME.clearProperty("extendedinfo_running")
+        xbmc.executebuiltin('ClearProperty(extendedinfo_running,home)')
 
     def _parse_argv(self):
+        self.handle = None
         self.infos = []
-        self.params = {"handle": None}
-        for arg in sys.argv[1:]:
+        self.params = {"handle": None,
+                       "control": None}
+        for arg in sys.argv:
+            if arg == 'script.extendedinfo':
+                continue
             param = arg.replace('"', '').replace("'", " ")
             if param.startswith('info='):
                 self.infos.append(param[5:])

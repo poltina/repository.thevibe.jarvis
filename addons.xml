@@ -73,14 +73,14 @@
   </extension>
 </addon>
 
-<addon id="context.extendedinfo.ratemedia" name="ExtendedInfo Script - Rate media items" version="0.1.0" provider-name="phil65">
+<addon id="context.extendedinfo.ratemedia" name="ExtendedInfo Script - Rate media items" version="0.9.0" provider-name="phil65">
   <requires>
     <import addon="xbmc.python" version="2.20.0"/>
     <import addon="script.extendedinfo" version="2.0.7"/>
   </requires>
   <extension point="kodi.context.item" library="addon.py">
     <item>
-      <label>30000</label>
+      <label>32000</label>
       <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,tvshow) | StringCompare(ListItem.dbtype,episode)</visible>
     </item>
   </extension>
@@ -121,6 +121,29 @@ Tip: for how to avoid extras beings scraped to library, see http://kodi.wiki/vie
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
     <forum></forum>
     <source>https://github.com/tamland/kodi-addon-extras</source>
+  </extension>
+</addon>
+
+<addon id="context.meta" name="Meta Context Menu" version="1.0.2" provider-name="MetaTeam">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.module.requests"/>
+    <import addon="plugin.video.meta"/>
+  </requires>
+
+  <extension point="kodi.context.item" library="context_playable.py">
+    <provides>executable</provides>
+      <item>
+        <label>$ADDON[plugin.video.meta 31002]</label>
+        <visible>[StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode)]</visible>
+      </item>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language></language>
+    <summary>Library context menu item by Meta</summary>
+    <description>Adds select stream entry to library movies and episodes</description>
   </extension>
 </addon>
 
@@ -1784,6 +1807,20 @@ this is an unofficial addon. please don't ask for support in openelec forum / ir
     </extension>
 </addon>
 
+<addon id="plugin.audio.housemixes" name="House Mixes" version="1.1.6" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <description lang="en"></description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon
   id="plugin.audio.kodcast"
   name="Kodcast"
@@ -1949,6 +1986,25 @@ this is an unofficial addon. please don't ask for support in openelec forum / ir
   </extension>
 </addon>
 
+<addon id="plugin.program.autocompletion" name="AutoCompletion for virtual keyboard" version="1.0.1" provider-name="Philipp Temminghoff (phil65)">
+    <requires>
+        <import addon="xbmc.python" version="2.24.0" />
+        <import addon="script.module.simplejson" version="3.3.0"/>
+        <import addon="script.module.autocompletion" version="1.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="plugin.py" />
+    <extension point="xbmc.python.script"  library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">AutoCompletion for the virtual keyboard (needs skin support)</summary>
+        <description lang="en">AutoCompletion for the virtual keyboard (needs skin support)</description>
+        <platform>all</platform>
+        <license>GNU GENERAL PUBLIC LICENSE Version 2.1, February 1999</license>
+        <source>https://github.com/phil65/plugin.program.autocompletion</source>
+    </extension>
+</addon>
+
 <addon id="plugin.program.community.builds" name="[COLOR=blue][B]T[/COLOR][COLOR=dodgerblue]R[/COLOR] [COLOR=white]Community Builds[/COLOR][/B]" version="1.3.5" provider-name="whufclee">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
@@ -2000,6 +2056,21 @@ this is an unofficial addon. please don't ask for support in openelec forum / ir
     </source>
     <email>
     </email>
+  </extension>
+</addon>
+
+<addon id="plugin.program.senyortools" name="[COLOR green]senyor tools[/COLOR]" version="1.1.7" provider-name="kodi senyor">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">kodi-senyor.co.il kodi tools and tweaks</summary>
+    <description lang="he">הרחבה ייחודית של קודי סניור המאפשרת התקנת הרחבות והגדרות מערכת בקליק אחד</description>
+    <platform>all</platform>
   </extension>
 </addon>
 
@@ -2223,6 +2294,21 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
   </extension>
 </addon>
 
+<addon id= "plugin.video.baby" name="Baby TV" version="1.0.0" provider-name="Donatello- http://Donatellokodi.blogspot.co.il">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Baby TV By Donatello Hybrid Blade</summary>
+    <description lang="en">Awesome BabyTV videos from YouTube - By Donatello Hybrid Blade.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.ccloudtv"
        name="cCloud TV"
        version="1.4.6"
@@ -2257,7 +2343,7 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
   </extension>
 </addon>
 
-<addon id="plugin.video.exodus" version="1.1.1" name="Exodus" provider-name="Exodus">
+<addon id="plugin.video.exodus" version="1.2.0" name="Exodus" provider-name="Exodus">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="repository.exodus" version="1.0.0" />
@@ -2297,7 +2383,30 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
 
 </addon>
 
-<addon id="plugin.video.featherence.docu" name="Featherence Docu" version="0.1.8" provider-name="finalmakerr, yoel guy">
+<addon id="plugin.video.featherence.be_creative" name="Featherence ?" version="0.0.1" provider-name="finalmakerr">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+	<platform>all</platform>
+    <summary lang="en">Easily create new addon</summary>
+	<summary lang="he">צור הרחבה חדשה בקלי קלות</summary>
+    <description lang="en">
+    </description>
+	<description lang="he">
+	</description>
+    <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+	<forum></forum>
+	<email>featherence@groups.facebook.com</email>
+	<source>https://github.com/finalmakerr/featherence/tree/master/master/plugin.video.featherence.be_creative</source>
+	<website>https://www.facebook.com/groups/featherence/</website>
+  </extension>
+</addon>
+
+<addon id="plugin.video.featherence.docu" name="Featherence Docu" version="0.1.9" provider-name="finalmakerr, yoel guy">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -2340,15 +2449,15 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
 
 <addon id="plugin.video.featherence.extreme" version="0.1.6" name="Featherence Extreme" provider-name="finalmakerr">
   <requires>
-    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">Watch sport extreme videos.</summary>
-    <summary lang="he">צפה בסרטוני ספורט אקסטרים.</summary>
+	<platform>all</platform>
+	<summary lang="en">Watch sport extreme videos.</summary>
+	<summary lang="he">צפה בסרטוני ספורט אקסטרים.</summary>
     <description lang="en">Features:
 - Customized Menus: Support customized Fanart for each button.
 - Random Play: Auto play any visible button in a random super long playlist.
@@ -2357,7 +2466,7 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
 - Varied and unlimited contents: Support unlimited URLs per content from varied sources such as Youtube, Dailymotion, Dropbox, Kodi's addons, supported websites..
 - YouTube search: Search any contents from YouTube, history included.
     </description>
-    <description lang="he">מאפיינים:
+	<description lang="he">מאפיינים:
 - חיפוש יו-טיוב: מאפשר חיפוש תכנים מיו-טיוב, כולל רשימת היסטוריה.
 - מצב טלוויזיה חכם: ניגון אוטומטי של התכנים בכפתור הנבחר, עד 40 פריטים  שונים בפלייליסט אחד, אפשרות לאקראי.
 - מיון: תכנים ממויינים ומאורגנים לפי גיל, כולל מיון לפי שפה.
@@ -2365,15 +2474,14 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
 - תכנים מגוונים ואין סופיים: תמיכה במגוון עצום של מקורות לתוכן בודד.
 	</description>
     <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-    <email>featherence@groups.facebook.com</email>
-    <forum>
-    </forum>
-    <source>https://github.com/finalmakerr/featherence/tree/master/master/plugin.video.featherence.extreme</source>
-    <website>https://www.facebook.com/groups/featherence/</website>
+	<email>featherence@groups.facebook.com</email>
+	<forum></forum>
+	<source>https://github.com/finalmakerr/featherence/tree/master/master/plugin.video.featherence.extreme</source>
+	<website>https://www.facebook.com/groups/featherence/</website>
   </extension>
 </addon>
 
-<addon id="plugin.video.featherence.kids" name="Featherence Kids" version="0.2.4" provider-name="finalmakerr">
+<addon id="plugin.video.featherence.kids" name="Featherence Kids" version="0.2.5" provider-name="finalmakerr">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="plugin.video.youtube" version="5.1.0"/>
@@ -2524,13 +2632,13 @@ Highly configurable: Set your PIN, set your watershed time, exclude addons if re
 
 <addon id="plugin.video.hop" name="הופ!" version="1.0.2" provider-name="Hybrid\Donatello\Blade">
   <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-    <import addon="script.module.beautifulsoup4" version="4.3.1" />
-    <import addon="script.module.requests" version="2.3.0" />
-    <import addon="script.module.html5lib" version="0.999.0" />s
+ <import addon="xbmc.python" version="2.1.0"/>
+ <import addon="script.module.beautifulsoup4" version="4.3.1" />
+ <import addon="script.module.requests" version="2.3.0" />
+ <import addon="script.module.html5lib" version="0.999.0" />s
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video</provides>
+        <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">This plugin let you watch hop channel's VOD.</summary>
@@ -2540,8 +2648,8 @@ Hybrid donations: https://goo.gl/5MLzGS
 Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
 	</description>
     <platform>all</platform>
-    <language>en</language>
-    <disclaimer> report any issues with this addon to Hybridmag12@gmail.com</disclaimer>
+ <language>en</language>
+ <disclaimer> report any issues with this addon to Hybridmag12@gmail.com</disclaimer>
   </extension>
 </addon>
 
@@ -2565,6 +2673,73 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
       <content>episodes</content>
       <content>movies</content>
     </supportedcontent>
+  </extension>
+</addon>
+
+<addon id="plugin.video.htpt.gopro" name="HTPT GoPro" version="0.0.11" provider-name="HTPT Team">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="plugin.video.youtube" version="5.1.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>he, en</language>
+    <platform>all</platform>
+    <summary lang="en">Watch sport extreme videos.</summary>
+    <summary lang="he">צפה בסרטוני ספורט אקסטרים.</summary>
+    <description lang="en">Visit HTPT Facebook Page for support</description>
+    <description lang="he">בקר אותנו בפייסבוק לתמיכה!</description>
+    <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    <email>infohtpt@gmail.com</email>
+    <website>https://www.facebook.com/pages/HTPT/934744346549707</website>
+  </extension>
+</addon>
+
+<addon id="plugin.video.htpt.kids" name="HTPT KIDS" version="0.0.19" provider-name="finalmakerr">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="plugin.video.youtube" version="5.1.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>he</language>
+    <platform>all</platform>
+    <summary lang="en">My kids are loving it!</summary>
+    <summary lang="he">הילדים שלי אוהבים את זה!</summary>
+    <description lang="en">This addon is updated by Kodi's users (See sources in addon.xml file).[CR]Visit HTPT Facebook Page for support</description>
+    <description lang="he">הרחבה זו מתוחזקת ע"י משתמשי קודי (ראה מקור בקובץ addon.xml).[CR]בקר אותנו בפייסבוק לתמיכה!</description>
+    <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    <forum>http://www.hometheater.co.il/vp2330471#2330471</forum>
+    <source>https://github.com/htpthtpt/htpt/tree/master/master/plugin.video.htpt.kids</source>
+    <email>infohtpt@gmail.com</email>
+    <website>https://www.facebook.com/pages/HTPT/934744346549707</website>
+  </extension>
+</addon>
+
+<addon id="plugin.video.htpt.music" name="HTPT Music" version="0.0.16" provider-name="HTPT Team">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="plugin.video.youtube" version="5.1.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>he</language>
+    <platform>all</platform>
+    <summary lang="en">For people who love Music!</summary>
+    <summary lang="he">לאנשים שאוהבים מוזיקה!</summary>
+    <description lang="en">This addon is updated by Kodi's users (See sources in addon.xml file).[CR]Visit HTPT Facebook Page for support</description>
+    <description lang="he">הרחבה זו מתוחזקת ע"י משתמשי קודי (ראה מקור בקובץ addon.xml).[CR]בקר אותנו בפייסבוק לתמיכה!</description>
+    <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    <forum>http://www.hometheater.co.il/vt239763.html</forum>
+    <source>https://github.com/htpthtpt/htpt/tree/master/master/plugin.video.htpt.music</source>
+    <email>infohtpt@gmail.com</email>
+    <website>https://www.facebook.com/pages/HTPT/934744346549707</website>
   </extension>
 </addon>
 
@@ -2615,6 +2790,49 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
     </extension>
 </addon>
 
+<addon id="plugin.video.israelive" name="[COLOR white]Israe[/COLOR][COLOR blue]L[/COLOR][COLOR white]IVE[/COLOR]" version="4.7.2" provider-name="Benny123, Avigdor (xbmc-israel repo)">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="script.module.israeliveresolver" />
+    <import addon="script.module.six" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="[login|startup]" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Benny123's project</summary>
+    <summary lang="he">הפרויקט של Benny123</summary>
+    <description lang="en">Watch Live TV channels from Israel and all over the world.[CR][CR]The addon page and free download:[CR][COLOR blue]http://www.hometheater.co.il/vt219048.html[/COLOR][CR][CR]More addons on The Israeli repo:[CR][COLOR blue]https://github.com/cubicle-vdo/xbmc-israel[/COLOR]</description>
+    <description lang="he">צפיה בשידורי טלויזיה חיים מישראל והעולם.[CR][CR]דף הסברים והורדה בחינם:[CR][COLOR blue]http://www.hometheater.co.il/vt219048.html[/COLOR][CR][CR]תוספים נוספים במקור הישראלי:[CR][COLOR blue]https://github.com/cubicle-vdo/xbmc-israel[/COLOR]</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.karaoketv" name="KaraokeTV" version="1.0.0" provider-name="Hybrid\Blade\Donatello">
+  <requires>
+ <import addon="xbmc.python" version="2.1.0"/>
+ <import addon="script.module.beautifulsoup4" version="4.3.1" />
+ <import addon="script.module.requests" version="2.3.0" />
+ <import addon="script.module.html5lib" version="0.999.0" />
+
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">This plugin let you watch karaoke.</summary>
+    <description lang="en">
+    Watch karaoke.
+    For donations: https://goo.gl/5MLzGS
+	Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
+	</description>
+    <platform>all</platform>
+ <language>en</language>
+ <disclaimer> report any issues with this addon to Hybridmag12@gmail.com</disclaimer>
+  </extension>
+</addon>
+
 <addon id="plugin.video.kickass" name="[COLOR FFFEDF64]KickAss[/COLOR] viewer" version="1.2.7"
        provider-name="mancuniancol">
     <requires>
@@ -2653,6 +2871,30 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
     <summary lang="en">Browse children sections in other addons</summary>
     <description lang="en">links to other  childern addons .</description>
     <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.kidstv" name="KidsTV" version="1.0.0" provider-name="Hybrid\Donatello">
+  <requires>
+ <import addon="xbmc.python" version="2.1.0"/>
+ <import addon="script.module.beautifulsoup4" version="4.3.1" />
+ <import addon="script.module.requests" version="2.3.0" />
+ <import addon="script.module.html5lib" version="0.999.0" />
+ <import addon="script.video.F4mProxy" version="2.1.7"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">This plugin let you watch kids channels VOD.</summary>
+    <description lang="en">
+    Watch kids channel VOD.
+Hybrid donations: https://goo.gl/5MLzGS
+Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
+	</description>
+    <platform>all</platform>
+ <language>en</language>
+ <disclaimer> report any issues with this addon to Hybridmag12@gmail.com</disclaimer>
   </extension>
 </addon>
 
@@ -2701,6 +2943,29 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
         for KODI/XBMC.]]></summary>
         <description><![CDATA[Watch torrents directly from KODI/XBMC, without waiting.]]></description>
     </extension>
+</addon>
+
+<addon id="plugin.video.kmusictube"
+       name="KMusic Tube"
+       version="1.1"
+       provider-name="deran">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.t0mm0.common" version="2.1.1"/>
+        <import addon="script.module.requests" version="1.1.0"/>
+		<import addon="plugin.video.youtube" optional="true" />
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video audio</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary>The ultimate mash-up between MP3Streams and YouTube music addons with a Israeli twist.</summary>
+        <description>Browse and streams an endless music library via YouTube. Manage favourites artists, albums and songs.</description>
+    </extension>
+
 </addon>
 
 <addon id="plugin.video.kodipopcorntime" name="KODI Popcorn Time" version="0.6.5" provider-name="Diblo">
@@ -2814,6 +3079,32 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
   </extension>
 </addon>
 
+<addon id="plugin.video.lulitv"
+       name="לולי"
+       version="1.0.0"
+       provider-name="Hybrid\Donatello\Blade">
+  <requires>
+ <import addon="xbmc.python" version="2.1.0"/>
+ <import addon="script.module.beautifulsoup4" version="4.3.1" />
+ <import addon="script.module.requests" version="2.3.0" />
+ <import addon="script.module.html5lib" version="0.999.0" />s
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">This plugin let you watch luli channel's VOD.</summary>
+    <description lang="en">
+    Watch luli channel VOD.
+Hybrid donations: https://goo.gl/5MLzGS
+Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
+	</description>
+    <platform>all</platform>
+ <language>en</language>
+ <disclaimer></disclaimer>
+  </extension>
+</addon>
+
 <addon id="plugin.video.MakoTV" name="MakoTV (web)" version="1.1.4" provider-name="xbmc-israel team ([COLOR white]x[/COLOR][COLOR blue]b[/COLOR][COLOR white]m[/COLOR][COLOR blue]c[/COLOR]-[COLOR white]i[/COLOR][COLOR blue]s[/COLOR][COLOR white]r[/COLOR][COLOR blue]a[/COLOR][COLOR white]e[/COLOR][COLOR blue]l[/COLOR] repo)">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
@@ -2878,6 +3169,24 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
   </extension>
 </addon>
 
+<addon id="plugin.video.md123movies" name="123Movies" version="1.1.3" provider-name="Mucky Duck">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+	<import addon="script.module.requests" />
+	<import addon="repository.mdrepo" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Stream Movies From The 123movies.to WebSite</summary>
+    <description lang="en">Special thanks to [COLOR FF8ABEE2]Open[/COLOR][COLOR FF757677]ELEQ[/COLOR] for the iSearch compatibility modifications</description>
+	<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.md9movies" name="9Movies" version="1.0.8" provider-name="Mucky Duck">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -2894,6 +3203,49 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
     <description lang="en">Stream Movies From The 9movies.to WebSite</description>
 	<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon or have any affiliation with the website owners</disclaimer>
     <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.meta" name="Meta" version="1.1.0" provider-name="MetaTeam">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.module.requests"/>
+    <import addon="script.module.futures" version="2.2.0"/>
+  </requires>
+
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+
+  <extension point="xbmc.service" library="service.py" start="[login|startup]">
+  </extension>
+
+  <extension point="kodi.context.item" library="context_playable.py">
+    <provides>executable</provides>
+      <item>
+        <label>$ADDON[plugin.video.meta 31002]</label>
+        <visible>!System.HasAddon(context.meta) + [StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode)] + SubString(ListItem.FileNameAndPath, plugin.video.meta)</visible>
+      </item>
+  </extension>
+
+  <extension point="kodi.context.item" library="context_tvshow.py">
+    <provides>executable</provides>
+      <item>
+        <label>$ADDON[plugin.video.meta 31022]</label>
+        <visible>StringCompare(ListItem.dbtype,tvshow) + SubString(ListItem.Path, plugin.video.meta)</visible>
+      </item>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language></language>
+    <summary>TMDB and TVDB media listing</summary>
+    <description>Browse TMDB and TVDB media</description>
+    <supportedcontent>
+      <content>movies</content>
+      <content>tvshows</content>
+      <content>episodes</content>
+    </supportedcontent>
   </extension>
 </addon>
 
@@ -2929,6 +3281,43 @@ Donatello donations: http://donatellokodi.blogspot.co.il/2015/10/blog-post.html
     <platform>all</platform>
     <forum>http://forums.tvaddons.ag/forums/152-ELEAZAR-S-XBMC-ADD-ON-REPOSITORY</forum>
     <website>http://www.tvaddons.ag</website>
+  </extension>
+</addon>
+
+<addon id="plugin.video.moviemix" name="Movie Mix" version="1.0.0" provider-name="MetalKettle">
+  <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <description lang="en"></description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.moviesil" name="[COLOR blue]MoviesIL[/COLOR]" version="1.0.1" provider-name="ToMeR">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="5.1.7"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">ToMeR</summary>
+    <summary lang="he">הרחבה מדהימה לצפייה בסרטים ישראליים, תוכלו למצוא פה מגוון סרטים החל מקומדיה ועד לדרמה וסרטי בורקס ,תהנו</summary>
+    <description lang="en">MoviesIL </description>
+    <description lang="he">הרחבה מדהימה לצפייה בסרטים ישראליים, תוכלו למצוא פה מגוון סרטים החל מקומדיה ועד לדרמה וסרטי בורקס ,תהנו</description>
+    <platform>all</platform>
+    <forum>n/a</forum>
+    <website>n/a</website>
   </extension>
 </addon>
 
@@ -3126,7 +3515,7 @@ http://www.hometheater.co.il</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.quasar" name="Quasar" version="0.9.29" provider-name="scakemyer">
+<addon id="plugin.video.quasar" name="Quasar" version="0.9.33" provider-name="scakemyer">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -3174,7 +3563,7 @@ http://www.hometheater.co.il</description>
 </addon>
 
 <!--suppress ALL -->
-<addon id="plugin.video.salts" version="2.0.16" name="Stream All The Sources" provider-name="tknorris">
+<addon id="plugin.video.salts" version="2.0.23" name="Stream All The Sources" provider-name="tknorris">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.urlresolver" version="2.2.0"/>
@@ -3277,27 +3666,28 @@ http://www.hometheater.co.il</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.specto" name="Specto - ... Fork" version="2016.02.06.3" provider-name="mrknow">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-    <import addon="script.module.requests" version="1.0.0" />
-    <import addon="script.module.metahandler" optional="true" />
-    <import addon="plugin.video.youtube" optional="true" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.service" library="service.py" start="startup" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Mrknow fork of ...</summary>
-    <description lang="en">Mrknow fork of ..., support https://github.com/mrknow/filmkodi/issues.</description>
-    <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.
+<addon id="plugin.video.specto" name="Specto - ... Fork"  version="2016.03.12.2" provider-name="mrknow" >
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="script.module.requests" version="1.0.0" />
+		<import addon="script.module.metahandler" />
+		<import addon="plugin.video.youtube" optional="true" />
+
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Mrknow fork of ...</summary>
+		<description lang="en">Mrknow fork of ..., support https://github.com/mrknow/filmkodi/issues.</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.
 		</disclaimer>
-    <forum>https://github.com/mrknow/filmkodi/issues</forum>
-    <source>http://filmkodi.com/repository/</source>
-    <website>http://filmkodi.com/en/wtyczka-specto-fork-genesis/</website>
-    <platform>all</platform>
-  </extension>
+		<forum>https://github.com/mrknow/filmkodi/issues</forum>
+		<source>http://filmkodi.com/repository/</source>
+		<website>http://filmkodi.com/en/wtyczka-specto-fork-genesis/</website>
+		<platform>all</platform>
+	</extension>
 </addon>
 
 <addon id="plugin.video.SportsDevil" version="2016.02.01" name="SportsDevil" provider-name="SportsDevil">
@@ -3351,6 +3741,20 @@ http://www.hometheater.co.il</description>
         <email>AddonScriptorDE at yahoo dot de</email>
         <website/>
     </extension>
+</addon>
+
+<addon id="plugin.video.supercartoons" name="Super Cartoons" version="1.0.15" provider-name="spoyser">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Watch cartoons online</summary>
+    <description lang="en">Watch cartoons online, search by most popular, characters and studio</description>
+     <platform>all</platform>
+  </extension>
 </addon>
 
 <addon id="plugin.video.teevee" name="TeeVee" version="1.0.1" provider-name="natko1412">
@@ -3409,6 +3813,28 @@ http://www.hometheater.co.il</description>
     <disclaimer>
     </disclaimer>
   </extension>
+</addon>
+
+<addon id="plugin.video.titan" name="[COLOR blue]T[/COLOR]itan" version="2.0.1" provider-name="Titan">
+	<requires>
+		<import addon="script.module.simplejson" version="3.3.0"/>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.t0mm0.common" version="2.0.0"/>
+		<import addon="plugin.video.youtube" version="3.0.0"/>
+		<import addon="script.module.urlresolver"  version="2.10.10"/>
+		<import addon="script.common.plugin.cache" version="2.5.2"/>
+		<import addon="script.module.metahandler" version="2.5.1"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+			<summary lang="en"></summary>
+			<description lang="en">Watch from a huge selection of Movies Tv Shows and Collections... Credits to Lambda for some resolvers used in this addon</description>
+			<disclaimer lang="en">The author does not host or distribute any of the content displayed by this add-on</disclaimer>
+
+			<platform>all</platform>
+	</extension>
 </addon>
 
 <addon id="plugin.video.trakt.viewer" name="[COLOR FFFF9900]TRAKT[/COLOR] viewer" version="0.0.2"
@@ -3524,6 +3950,26 @@ http://www.hometheater.co.il</description>
   <extension point="xbmc.service" library="service.py" start="startup"/>
 </addon>
 
+<addon id="plugin.video.ukturk" name="UK Turk Playlists" version="2.0.9" provider-name="MetalKettle">
+  <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Free Playlists courtesy of @uk_turk</summary>
+    <description lang="en">Free Playlists courtesy of @uk_turk</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.ustvnow" name="USTVnow" provider-name="Lunatixz" version="12.0.22">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
@@ -3617,6 +4063,23 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
+<addon id="plugin.video.Vodil" name="V.O.D IL" version="1.0.9" provider-name="kodi senyor">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="plugin.video.youtube"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>he</language>
+    <summary lang="he">הרחבה לצפיה בסרטונים מיוטיוב</summary>
+    <description lang="he">הרחבה לצפיה בתכנים מיוטיוב</description>
+    <disclaimer lang="en">kodi senyor Is Not Affiliated With The Content In This Addon</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.wallaNew.video" name="וואלה" version="2.2.3" provider-name="sbentin shlomico">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -3665,7 +4128,7 @@ http://www.hometheater.co.il</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.watch1080" name="Watch 1080p" version="1.0.8" provider-name="MetalKettle">
+<addon id="plugin.video.watch1080" name="Watch 1080p" version="1.0.11" provider-name="MetalKettle">
   <requires>
     <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -3781,7 +4244,7 @@ http://www.hometheater.co.il</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.youtube" name="YouTube" version="5.1.20.4" provider-name="bromix">
+<addon id="plugin.video.youtube" name="YouTube" version="5.1.20.1" provider-name="bromix">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 	</requires>
@@ -4158,6 +4621,47 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
+<addon id="repository.hal9000" name="HAL9000 Add-on Repository" version="1.0.1" provider-name="HAL9000">
+    <extension point="xbmc.addon.repository" name="HAL9000 Add-on Repository">
+        <info compressed="false">https://raw.githubusercontent.com/xbmc-addon/repository.hal9000/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/xbmc-addon/repository.hal9000/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/xbmc-addon/repository.hal9000/master/repo</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Install HAL9000 Addons</summary>
+        <description lang="en">Download and install addons by HAL9000</description>
+        <summary lang="ru">Репозиторий HAL9000</summary>
+        <description lang="ru">Скачивание и установка плагинов от HAL9000</description>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="repository.Halowrepo" name="  [COLOR lime][B]HALOW [/COLOR][COLOR white]Repository[/B][/COLOR]" version="2.2.6" provider-name="HalowRepo">
+	<extension point="xbmc.addon.repository" name="  [COLOR lime][B]Halow[/COLOR][COLOR white]Repository[/B][/COLOR]">
+        <info compressed="false">https://raw.githubusercontent.com/HalowTV/Halowrepo/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/HalowTV/Halowrepo/master/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/HalowTV/Halowrepo/master/zips/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install my Addons</summary>
+		<description>Download and install addons from Halow Repo</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.htpt" name="HTPT repository" version="1.3.0" provider-name="finalmakerr">
+	<extension point="xbmc.addon.repository" name="HTPT repository">
+		<info compressed="false">https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/htpthtpt/htpt/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/htpthtpt/htpt/master/</datadir>
+    </extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">HTPT</summary>
+		<description lang="en">Get frequently updates from HTPT team</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="repository.husham.com" name="Husham.com Repo" version="1.1.0004" provider-name="husham.com">
 	<extension point="xbmc.addon.repository" name="Husham.com Repository">
 		<info compressed="false">https://raw.githubusercontent.com/hmemar/husham.com/master/repository/addons.xml</info>
@@ -4208,15 +4712,33 @@ http://www.hometheater.co.il</description>
     </extension>
 </addon>
 
-<addon id="repository.kodi-senyor" name="kodi senyor repository" version="1.1.0" provider-name="kodi senyor">
+<addon id="repository.kodi-senyor" name="kodi senyor repository" version="1.2.0" provider-name="kodi senyor">
 	<extension point="xbmc.addon.repository" name="kodi senyor repository">
-			<info compressed="false">http://kodi-senyor.co.il/Zips/addons.xml</info>
-			<checksum>http://kodi-senyor.co.il/Zips/addons.xml.md5</checksum>
-			<datadir zip="true">http://kodi-senyor.co.il/Zips/</datadir>
+			<info compressed="false">https://github.com/kobiko3030/repository.kodisenyor/raw/master/addons.xml</info>
+			<checksum>https://github.com/kobiko3030/repository.kodisenyor/raw/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://github.com/kobiko3030/repository.kodisenyor/raw/master/Zips/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">kodi-senyor.co.il repo</summary>
 		<description lang="en">kodi-senyor.co.il repo</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.lambda" name="lambda Add-on repository" version="1.1.0" provider-name="lambda">
+	<extension point="xbmc.addon.repository" name="lambda Add-on repository">
+		<dir>
+			<info compressed="false">http://raw.github.com/lambda81/lambda-repo/master/addons.xml</info>
+			<checksum>http://raw.github.com/lambda81/lambda-repo/master/addons.xml.md5</checksum>
+			<datadir zip="true">http://raw.github.com/lambda81/lambda-repo/master/</datadir>
+		</dir>
+		<info compressed="false">https://offshoregit.com/lambda81/lambda-repo/addons.xml</info>
+		<checksum>https://offshoregit.com/lambda81/lambda-repo/addons.xml.md5</checksum>
+		<datadir zip="true">https://offshoregit.com/lambda81/lambda-repo/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Install Add-ons from lambda</summary>
+		<description lang="en">Download and install add-ons from lambda repository.</description>
 		<platform>all</platform>
 	</extension>
 </addon>
@@ -4437,37 +4959,15 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
-<addon id="repository.thevibe" name="The-Vibe Team Repository"	version="4.0.0" provider-name="The-Vibe Team">
-  <requires>
-    <import addon="xbmc.addon" version="12.0.0"/>
-  </requires>
-  <extension point="xbmc.addon.repository" name=":The-Vibe Team Repository">
-    <dir minversion="15.0.0">
-      <info compressed="true">https://github.com/teamThevibe/repository.thevibe.isengard/raw/master/addons.xml</info>
-      <checksum>https://github.com/teamThevibe/repository.thevibe.isengard/raw/master/addons.xml.md5</checksum>
-      <datadir zip="true">https://github.com/teamThevibe/repository.thevibe.isengard/raw/master/Zips/</datadir>
-      <hashes>false</hashes>
-    </dir>
+<addon id="repository.thevibe" name="TheVibe Team Repository" version="3.3.0" provider-name="TheVibe Team">
+  <extension point="xbmc.addon.repository" name=".TheVibe Repository ">
+    <info compressed="false">https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/addons.xml</info>
+    <checksum>https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/addons.xml.md5</checksum>
+    <datadir zip="true">https://github.com/teamThevibe/repository.thevibe/raw/master/Repo/</datadir>
   </extension>
-  <extension point="xbmc.addon.repository" name=":The-Vibe Team Repository">
-    <dir minversion="15.9.0">
-      <info compressed="true">https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/addons.xml</info>
-      <checksum>https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/addons.xml.md5</checksum>
-      <datadir zip="true">https://github.com/teamThevibe/repository.thevibe.jarvis/raw/master/Zips/</datadir>
-      <hashes>false</hashes>
-    </dir>
-  </extension>
-
   <extension point="xbmc.addon.metadata">
-    <summary lang="en_US">Install Add-ons from The Vibe Team</summary>
-    <summary lang="he_IL">התקנת הרחבות מ־The Vibe Team</summary>
-    <summary lang="ru_RU">Установить дополнения с сайта The Vibe Team</summary>
-    <description lang="en_US">Download and install add-ons from The Vibe Team add-on repository.[CR]  By using the official Repository you will be able to take advantage of our extensive file mirror service to help get you faster downloads from a region close to you.[CR]  All add-ons on this repository have under gone basic testing, if you find a broken or not working add-on please report it to The Vibe Team so we can take any action needed.</description>
-    <description lang="he_IL">הורדה והתקנת הרחבות ממאגר הרחבות The Vibe Team הרשמי.[CR]  שימוש במאגר הרשמי מאפשר לנצל את שירות שיקוף הקבצים שלThe Vibe Team העוזר להוריד מהר יותר מהשרת הקרוב ביותר.[CR] כל ההרחבות במאגר זה עברו בדיקה בסיסית. יש לדווח לצוות הפיתוח של The Vibe Team על כל הרחבה שנמצאה כלא תקינה או שלא עובדת ע"מ שתתבצע הפעולה המתאימה.</description>
-    <description lang="ru_RU">Загружайте и устанавливайте обновления из официального репозитория The Vibe Team[CR]Используя официальный репозиторий, вы сможете воспользоваться преимуществами распределенного хранилища для быстрой загрузки файлов с ближайшего к вам сервера.[CR]Все дополнения в данном репозитории прошли тестирование. Если вы обнаружили нерабочее дополнение, сообщите об этом разработчикам The Vibe Team.</description>
-    <disclaimer lang="en_US">Team-Kodi did not make all the add-ons on this repository and are not responsible for their content</disclaimer>
-    <disclaimer lang="he_IL">צוות הפיתוח של The Vibe Team לא יצר את כל ההרחבות שבמאגר זה ואיננו אחראי על תוכנן</disclaimer>
-    <disclaimer lang="ru_RU">Разработчики The Vibe Team не являются авторами всех дополнений в данном репозитории и не несут ответственность за их содержимое.</disclaimer>
+    <summary>The-Vibe Team Repository</summary>
+    <description>The-Vibe Team Repository</description>
     <platform>all</platform>
     <website>http://www.the-vibe.co.il</website>
   </extension>
@@ -4671,6 +5171,18 @@ http://www.hometheater.co.il</description>
 	</extension>
 </addon>
 
+<addon id="resource.images.weatherfanart.single" name="Weather Fanart - Single" version="0.0.6" provider-name="Silverxxx,Team Kodi">
+	<extension point="kodi.resource.images" compile="false" type="weather" />
+	<requires>
+		<import addon="kodi.resource" version="1.0.0"/>
+	</requires>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Weather Fanart Single</summary>
+		<description lang="en">A single Weather Fanart image for every weather condition</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon
   id="resource.language.en_us"
   version="2.0.1"
@@ -4697,17 +5209,11 @@ http://www.hometheater.co.il</description>
   </extension>
 </addon>
 
-<addon
-  id="resource.language.he_il"
-  version="2.0.3"
-  name="Hebrew"
-  provider-name="Team Kodi">
+<addon id="resource.language.he_il" version="2.0.2" name="Hebrew" provider-name="Team Kodi">
   <requires>
-    <import addon="kodi.resource" version="1.0.0"/>
+    <import addon="kodi.resource" version="1.0.0" />
   </requires>
-  <extension
-    point="kodi.resource.language"
-    locale="he_IL">
+  <extension point="kodi.resource.language" locale="he_IL">
     <charsets>
       <gui unicodefont="true">CP1255</gui>
       <subtitle>CP1255</subtitle>
@@ -4929,12 +5435,7 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 	</extension>
 </addon>
 
-<addon
-    id="script.artwork.downloader"
-    name="Artwork Downloader"
-    version="12.0.29.1"
-    provider-name="Martijn"
-    >
+  <addon id="script.artwork.downloader" name="Artwork Downloader" version="14.1.0.0" provider-name="Martijn">
   <requires>
     <import addon="xbmc.python"                 version="2.1.0"/>
     <import addon="xbmc.json"                   version="6.0.0"/>
@@ -5320,7 +5821,7 @@ If for any reason the check of a successful wake-up via ping is not possible or 
   </extension>
 </addon>
 
-<addon id="script.exodus.artwork" version="1.0.0" name="Exodus Artwork" provider-name="l*m*d*">
+<addon id="script.exodus.artwork" version="1.0.1" name="Exodus Artwork" provider-name="Exodus">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
 	</requires>
@@ -5334,35 +5835,35 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 	</extension>
 </addon>
 
-<addon id="script.extendedinfo" name="ExtendedInfo Script" version="4.5.2" provider-name="phil65">
-	<requires>
-		<import addon="xbmc.python" version="2.24.0"/>
-		<import addon="script.module.simplejson" version="2.0.10"/>
-		<import addon="script.module.youtube.dl" version="14.519.1"/>
-		<import addon="resource.images.studios.white" version="0.0.5"/>
-		<import addon="script.module.autocompletion" version="1.0.0"/>
-		<import addon="script.module.actionhandler" version="1.0.1"/>
-		<import addon="script.module.t9.search" version="1.0.0"/>
-		<!-- 		<import addon="script.module.buggalo" version="1.1.6"/>-->
-		<import addon="script.module.pil" version="1.1.7"/>
-	</requires>
-	<extension point="xbmc.python.script" library="default.py">
-		<provides>executable</provides>
-	</extension>
-	<extension point="xbmc.python.library" library="default.py" />
-	<extension point="xbmc.python.pluginsource" library="plugin.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<language/>
-		<summary lang="en">ExtendedInfo Script</summary>
-		<description lang="en">This script offers various possibilities to display online content inside skins as well as a complete MovieDB browser including info dialogs for various media types. Used services are themoviedb.org, theaudiodb.org, rottentomatoes.com, Trakt.TV, omdbapi.com and a lot more. Needs skin implementation for lot of functions.</description>
-		<platform>all</platform>
-		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
-		<forum>http://forum.kodi.tv/showthread.php?tid=160558</forum>
-		<source>https://github.com/phil65/script.extendedinfo</source>
-		<email>phil65@kodi.tv</email>
-	</extension>
+<addon id="script.extendedinfo" name="ExtendedInfo Script" version="4.5.1" provider-name="phil65">
+  <requires>
+    <import addon="xbmc.python" version="2.24.0" />
+    <import addon="script.module.simplejson" version="2.0.10" />
+    <import addon="script.module.youtube.dl" version="14.519.1" />
+    <import addon="resource.images.studios.white" version="0.0.5" />
+    <import addon="script.module.autocompletion" version="1.0.0" />
+    <import addon="script.module.actionhandler" version="1.0.1" />
+    <import addon="script.module.t9.search" version="1.0.0" />
+    <!-- 		<import addon="script.module.buggalo" version="1.1.6"/>-->
+    <import addon="script.module.pil" version="1.1.7" />
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.python.library" library="default.py" />
+  <extension point="xbmc.python.pluginsource" library="plugin.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language />
+    <summary lang="en">ExtendedInfo Script</summary>
+    <description lang="en">This script offers various possibilities to display online content inside skins as well as a complete MovieDB browser including info dialogs for various media types. Used services are themoviedb.org, theaudiodb.org, rottentomatoes.com, Trakt.TV, omdbapi.com and a lot more. Needs skin implementation for lot of functions.</description>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
+    <forum>http://forum.kodi.tv/showthread.php?tid=160558</forum>
+    <source>https://github.com/phil65/script.extendedinfo</source>
+    <email>phil65@kodi.tv</email>
+  </extension>
 </addon>
 
 <addon id="script.eztv2kd" name="[COLOR FFC0392B]EZTV2[/COLOR]KD" version="1.1.2" provider-name="mancuniancol">
@@ -5428,121 +5929,41 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 	</extension>
 </addon>
 
-<addon id="script.favourites" name="Favourites script" version="6.0.3" provider-name="ronie, `Black">
+<addon id="script.favourites" name="Favourites script" version="8.0.8" provider-name="ronie|`Black">
 	<requires>
-		<import addon="xbmc.python" version="2.19.0"/>
+		<import addon="xbmc.python" version="2.1.0"/>
 	</requires>
 	<extension point="xbmc.python.library" library="default.py"/>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="be">Favourites script</summary>
-		<summary lang="bg">Скрипт "Любими"</summary>
-		<summary lang="ca">Script Preferit</summary>
-		<summary lang="cs">Script pro Oblíbené</summary>
-		<summary lang="da">Favoritscript</summary>
-		<summary lang="de">Favoriten-Skript</summary>
-		<summary lang="el">Script Αγαπημένων</summary>
-		<summary lang="en">Favourites script</summary>
-		<summary lang="en_NZ">Favourites script</summary>
-		<summary lang="en_US">Favorites script</summary>
-		<summary lang="es">Script de Favoritos</summary>
-		<summary lang="es_AR">Favoritos</summary>
-		<summary lang="fi">Suosikit skripti</summary>
-		<summary lang="fr">Script Favoris</summary>
-		<summary lang="fr_CA">Le script des favoris</summary>
-		<summary lang="gl">Script de Favoritos</summary>
-		<summary lang="he">סקריפט מועדפים</summary>
-		<summary lang="hr">Omiljene skripte</summary>
-		<summary lang="hu">Kedvencek script</summary>
-		<summary lang="id">Script favorit</summary>
-		<summary lang="it">Script preferiti</summary>
-		<summary lang="ko">즐겨찾기 스크립트</summary>
-		<summary lang="lt">Mėgstamiausių skriptas</summary>
-		<summary lang="nl">Favourietenscript</summary>
-		<summary lang="no">Favorittskript</summary>
-		<summary lang="pl">Skrypt ulubionych</summary>
-		<summary lang="pt">Script de Favoritos</summary>
-		<summary lang="pt_BR">Script Favoritos</summary>
-		<summary lang="ro">Script Favorite</summary>
-		<summary lang="ru">Скрипт "Избранное"</summary>
-		<summary lang="sv">Favoritskript</summary>
-		<summary lang="tr">Sık kullanılanlar betiği</summary>
-		<summary lang="zh">收藏夹脚本</summary>
-		<description lang="be">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
-		<description lang="bg">Извлича информация от вашето меню "Любими" и показва допълнителни бутони в главното меню и подменюто.</description>
-		<description lang="ca">Obtenir els temes Preferits dels seus Kodi per omplir el menú Inici / submenú amb botons personalitzats.</description>
-		<description lang="cs">Přenese položky z Oblíbených do Home menu/submenu pod vlastní tlačítka. </description>
-		<description lang="da">Henter elementer fra din Kodi-favoritter til at fylde Hjemmemenu/undermenu med brugerbestemte knapper.</description>
-		<description lang="de">Stellt die Einträge aus der Kodi-Favoriten-Liste für benutzerdefinierte Verknüpfungen auf dem Startbildschirm zur Verfügung.</description>
-		<description lang="el">Χρησιμοποιεί αντικείμενα από τα αγαπημένα σας του Kodi για να συμπληρώσει τα προσαρμοσμένα πλήκτρα μενού/υπομενού της Αρχικής Οθόνης</description>
-		<description lang="en">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
-		<description lang="en_NZ">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
-		<description lang="en_US">Fetches item from your Kodi favorites to populate Home menu/submenu with custom buttons.</description>
-		<description lang="es">Usar ítems de tus favoritos de Kodi para crear menús y submenús personalizados</description>
-		<description lang="es_AR">Obtiene medios de sus favoritos en Kodi para enriquecer su menu inicio y sub carpetas con botones personalizados</description>
-		<description lang="fi">Hakee Kodin suosikeista kohteita ja populoi sillä Koti-valikon / alivalikon muokatuilla napeilla.</description>
-		<description lang="fr">Récupère l'élément depuis les favoris Kodi pour remplir le menu/sous-menu de la page d'accueil avec des boutons personnalisés.</description>
-		<description lang="fr_CA">Récupère l'élément de vos favoris Kodi pour remplir le menu d'accueil/le sous-menu avec des boutons personnalisés.</description>
-		<description lang="gl">Obtén o elemento dos favoritos para estabelecer botóns personalizados no Menú Principal/Submenú</description>
-		<description lang="he">מייבא פריט מהמועדפים שלך לאכלוס תפריט/תת תפריט עם לחצנים מותאמים אישית במסך הבית.</description>
-		<description lang="hr">Dohvaća stavke iz vašeg Kodi 'Omiljeno' izbornika i popunjava Početni izbornik/podizbornik s prilagođenim tipkama.</description>
-		<description lang="hu">Összegyűjti az elemeket az Kodi kedvencek közül és a központi menü almenüjébe helyezi egyedi gombokkal.</description>
-		<description lang="id">Ambil item dari favorit Kodi Anda untuk mengisi menu/submenu Beranda dengan tombol suka-suka.</description>
-		<description lang="it">Preleva elementi dai tuoi preferiti per popolare il menù principale ed i sottomenù con bottoni personalizzato.</description>
-		<description lang="ko">Kodi 즐겨찾기에서 항목을 가져와 사용자 설정 버튼으로 홈 메뉴/서브메뉴에 표시합니다.</description>
-		<description lang="lt">Paima elementus iš Kodi mėgstamiausiųjų, kad užpildytų pagrindinio meniu/submeniu individualiais mygtukais.</description>
-		<description lang="nl">Haalt item van je Kodi favorieten op om in het Home menu/submenu te plaatsen via losse buttons.</description>
-		<description lang="no">Henter oppføringer fra favorittene dine i Kodi for å befolke hovedmenyen og undermenyen med egendefinerte knapper.</description>
-		<description lang="pl">Pobiera pozycje z twoich ulubionych w celu zapełnienia menu/podmenu niestandardowymi przyciskami.</description>
-		<description lang="pt">Obtém itens dos seus favoritos do Kodi para povoar o Menu Principal/submenu com botões personalizados.</description>
-		<description lang="pt_BR">Compila itens dos seus favoritos do Kodi para ocupar menus e submenus da tela inicial com botões personalizados.</description>
-		<description lang="ru">Извлекает информацию из Вашего меню "Избранное" и отображает дополнительные кнопки в главном меню и подменю.</description>
-		<description lang="sv">Hämtar objekt från dina Kodi-favoriter för att fylla ut hem-menyn med egna knappar.</description>
-		<description lang="zh">将 Kodi 收藏夹项目用于主界面菜单/子菜单的自定义按钮。</description>
-		<disclaimer lang="be">Needs skin support for it to be used properly</disclaimer>
-		<disclaimer lang="bg">Необходима е поддръжка от страна на облика за коректно функциониране</disclaimer>
-		<disclaimer lang="ca">Necessita Suport de la pell perquè sigui utilitzat correctament</disclaimer>
-		<disclaimer lang="cs">Pro správné použití je potřeba podpora skinu.</disclaimer>
-		<disclaimer lang="da">Behøver skinsupport for at blive brugt ordentligt</disclaimer>
-		<disclaimer lang="de">Benötigt Skin-Support um korrekt genutzt zu werden</disclaimer>
-		<disclaimer lang="el">Απαιτείται υποστήριξη από το κέλυφος για να χρησιμοποιηθεί σωστά</disclaimer>
-		<disclaimer lang="en">Needs skin support for it to be used properly</disclaimer>
-		<disclaimer lang="en_NZ">Needs skin support for it to be used properly</disclaimer>
-		<disclaimer lang="en_US">Needs skin support for it to be used properly</disclaimer>
-		<disclaimer lang="es">Necesita ser soportado por el skin para poder funcionar correctamente</disclaimer>
-		<disclaimer lang="es_AR">Necesita soporte de mascara para ser usada correctamente</disclaimer>
-		<disclaimer lang="fi">Toimiakseen kunnolla, skinin tulee tukea tätä</disclaimer>
-		<disclaimer lang="fr">Nécessite le support du thème pour qu'il soit utilisé correctement</disclaimer>
-		<disclaimer lang="fr_CA">Le prise en charge de l'habillage est nécessaire pour qu'il soit utilisé correctement</disclaimer>
-		<disclaimer lang="gl">Precisa da axuda da pel para que sexa utilizado correctamente</disclaimer>
-		<disclaimer lang="he">להפעלה כראוי נדרשת תמיכה במעטפת</disclaimer>
-		<disclaimer lang="hr">Zahtijeva podršku presvlake za ispravno korištenje</disclaimer>
-		<disclaimer lang="hu">Felszín támogatás szükséges a helyes működéshez</disclaimer>
-		<disclaimer lang="id">Memerlukan dukungan kulit untuk dapat digunakan dengan baik</disclaimer>
-		<disclaimer lang="it">E' necessario che lo skin supporti lo script per funzionare correttamente</disclaimer>
-		<disclaimer lang="ko">스킨에서 지원해야 합니다</disclaimer>
-		<disclaimer lang="lt">Reikalingas teminės išvaizdos palaikymas tinkamam naudojimui</disclaimer>
-		<disclaimer lang="nl">Heeft skinondersteuning nodig om correct te werken</disclaimer>
-		<disclaimer lang="no">Krever skallstøtte for å fungere riktig</disclaimer>
-		<disclaimer lang="pl">Wymagane wsparcie skórki w celu poprawnego działania</disclaimer>
-		<disclaimer lang="pt">Necessita de um tema compatível para funcionar correctamente.</disclaimer>
-		<disclaimer lang="pt_BR">Necessita de suporte da skin para ser usado adequadamente</disclaimer>
-		<disclaimer lang="ro">Necesită suport din partea costumului pentru a fi folosit cum trebuie</disclaimer>
-		<disclaimer lang="ru">Необходима поддержка скинов для корректного отображения</disclaimer>
-		<disclaimer lang="sl">Potrebuje podporo preobleke, da bo uporabljeno pravilno.</disclaimer>
-		<disclaimer lang="sv">Behöver skalsupport för att kunna användas riktigt</disclaimer>
-		<disclaimer lang="tr">Düzgün kullanılabilmesi için dış görünüm desteğine ihtiyacınız var</disclaimer>
-		<disclaimer lang="zh">正常使用需要皮肤支持</disclaimer>
-		<language></language>
+		<language/>
+		<summary>Favourites script</summary>
+		<description>Fetches item from your xbmc favourites to populate Home menu/submenu with custom buttons.</description>
+		<disclaimer>Needs skin support for it to be used properly</disclaimer>
 		<platform>all</platform>
-		<license>GNU GENERAL PUBLIC LICENSE Version 2</license>
-		<forum>http://forum.kodi.tv/showthread.php?tid=114671</forum>
-		<website></website>
-		<email></email>
-		<source>https://github.com/ronie/script.favourites</source>
+		<forum>http://forum.xbmc.org/showthread.php?tid=114671</forum>
+		<source>https://code.google.com/p/ronie/source/</source>
 	</extension>
 </addon>
 
-<addon id="script.featherence.service" name="Featherence Service" version="0.2.18" provider-name="finalmakerr">
+<addon id="script.featherence.remote" name="Featherence Remote" version="0.1.0" provider-name="finalmakerr">
+  <requires>
+	<import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+	<platform>all</platform>
+    <summary>Control your OpenELEC with any standard Remote Control</summary>
+    <description></description>
+    <disclaimer></disclaimer>
+	<email>featherence@groups.facebook.com</email>
+	<forum></forum>
+	<source>https://github.com/finalmakerr/featherence/tree/master/master/script.featherence.remote</source>
+	<website>https://www.facebook.com/groups/featherence/</website>
+  </extension>
+</addon>
+
+<addon id="script.featherence.service" name="Featherence Service" version="0.2.7" provider-name="finalmakerr">
   <requires>
 	<import addon="xbmc.json" version="6.0.0"/>
 	<import addon="xbmc.python" version="2.1.0"/>
@@ -5563,82 +5984,82 @@ If for any reason the check of a successful wake-up via ping is not possible or 
 </addon>
 
 <addon id="script.globalsearch" name="Global Search" version="6.0.6" provider-name="ronie">
-	<requires>
-		<import addon="xbmc.python" version="2.24.0"/>
-		<import addon="script.module.simplejson" version="3.3.0"/>
-	</requires>
-	<extension point="xbmc.python.script" library="default.py">
-		<provides>executable</provides>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="bg">Търси в библиотеката Ви.</summary>
-		<summary lang="ca">Cerca a la teva biblioteca.</summary>
-		<summary lang="cs">Hledej v knihovně</summary>
-		<summary lang="de">Durchsuchen Sie Ihre Bibliothek.</summary>
-		<summary lang="el">Αναζήτηση στη Συλλογή σας.</summary>
-		<summary lang="en">Search your library.</summary>
-		<summary lang="en_NZ">Search your library.</summary>
-		<summary lang="en_US">Search your library.</summary>
-		<summary lang="es">Busca tu biblioteca.</summary>
-		<summary lang="fr">Chercher dans la médiathèque.</summary>
-		<summary lang="fr_CA">Chercher dans votre bibliothèque</summary>
-		<summary lang="gl">Buscar a súa biblioteca.</summary>
-		<summary lang="he">חיפוש בספריית המדיה.</summary>
-		<summary lang="hr">Pretražite svoju zbirku.</summary>
-		<summary lang="hu">Keresés a médiatárban</summary>
-		<summary lang="id">Cari pustaka Anda.</summary>
-		<summary lang="it">Ricerca nella la tua libreria.</summary>
-		<summary lang="ko">라이브러리 찾기</summary>
-		<summary lang="lt">Ieškoti bibliotekoje.</summary>
-		<summary lang="nl">Zoek in je bibliotheek.</summary>
-		<summary lang="no">Søk i biblioteket ditt</summary>
-		<summary lang="pl">Przeszukaj swoją bibliotekę</summary>
-		<summary lang="pt">Faça buscas na sua biblioteca.</summary>
-		<summary lang="pt_BR">Pesquise sua coleção.</summary>
-		<summary lang="ro">Căutați în mediateca dumneavoastră.</summary>
-		<summary lang="ru">Поиск в вашей медиатеке.</summary>
-		<summary lang="sl">Iščite v svoji knjižnici.</summary>
-		<summary lang="sv">Sök i ditt bibliotek.</summary>
-		<summary lang="tr">Kitaplığını ara</summary>
-		<summary lang="zh">资料库搜索</summary>
-		<description lang="bg">Добавката може да намери всеки елемент във вашата видео и музикална библиотека.</description>
-		<description lang="ca">Aquest complement pot trobat qualsevol article en la teva biblioteca de vídeo i música</description>
-		<description lang="cs">Tento dopněk dokáže najít libovolnou položku ve vaší audio a video knihovně.</description>
-		<description lang="de">Dieses Add-on kann jeden Eintrag in Ihrer Video- und Musikbibliothek finden.</description>
-		<description lang="el">Αυτό το πρόσθετο μπορεί να βρει κάθε αντικείμενο στις συλλογές σας.</description>
-		<description lang="en">This addon can find any item in your video and music library.</description>
-		<description lang="en_NZ">This addon can find any item in your video and music library.</description>
-		<description lang="en_US">This addon can find any item in your video and music library.</description>
-		<description lang="es">Este complemento puede encontrar cualquier elemento en tu biblioteca de vídeo y música.</description>
-		<description lang="fr">Cette extension peut trouver tout élément dans la vidéothèque et l'audiothèque.</description>
-		<description lang="fr_CA">Cet addiciel peut trouver tout élément dans votre vidéothèque et dans votre audiothèque.</description>
-		<description lang="gl">Este complemento pode atopar calquera elemento na súa biblioteca de medios.</description>
-		<description lang="he">הרחבה זו יכולה למצוא כל פריט בספריות הווידאו והמוזיקה.</description>
-		<description lang="hr">Ovaj dodatak može pronaći svaku stavku u vašoj videoteci ili fonoteci.</description>
-		<description lang="hu">Ez a kiegészítő bármely elemet megtalálja a videó és audió médiatárban.</description>
-		<description lang="id">Addon ini dapat mencari item apa saja di pustaka video dan musik Anda.</description>
-		<description lang="it">Questo addon può trovare ogni elemento nella tua libreria video ed in quella musicale.</description>
-		<description lang="ko">비디오와 음악 라이브러리의 모든 항목을 검색합니다.</description>
-		<description lang="lt">Šis priedas gali rasti bet kokį elementą jūsų vaizdo ir garso bibliotekoje.</description>
-		<description lang="nl">Deze addon kan elk item in je video- en muziekbibliotheken vinden.</description>
-		<description lang="no">Dette tillegget kan finne hva som helst i ditt film eller musikk bibliotek.</description>
-		<description lang="pl">Ten plugin może odnaleźć dowolną pozycję w twojej bibliotece wideo oraz muzycznej.</description>
-		<description lang="pt">Este addon pode encontrar qualquer item na sua biblioteca de vídeos e de músicas.</description>
-		<description lang="pt_BR">Este addon pode encontrar qualquer item na sua coleção de vídeos e música.</description>
-		<description lang="ro">Acest supliment poate găsi orice element în mediateca dumneavoastră video și audio.</description>
-		<description lang="ru">Это дополнение поможет найти любую запись в вашей медиатеке.</description>
-		<description lang="sl">Ta dodatek lahko poišče katerokoli podatek v vaši knjižnici filmov in glasbe.</description>
-		<description lang="sv">Detta tillägg kan hitta vilket objekt som helst i ditt video och musikbibliotek.</description>
-		<description lang="tr">Bu eklenti video ve müzik kitaplığınızdaki herhangi bir öğeyi bulabilir.</description>
-		<description lang="zh">此插件搜索你的视频和音乐资料库项目。</description>
-		<language></language>
-		<platform>all</platform>
-		<license>GNU GENERAL PUBLIC LICENSE Version 2</license>
-		<forum>http://forum.kodi.tv/showthread.php?tid=109301</forum>
-		<website></website>
-		<email></email>
-		<source>https://github.com/ronie/script.globalsearch/</source>
-	</extension>
+  <requires>
+    <import addon="xbmc.python" version="2.24.0" />
+    <import addon="script.module.simplejson" version="3.3.0" />
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="bg">Търси в библиотеката Ви.</summary>
+    <summary lang="ca">Cerca a la teva biblioteca.</summary>
+    <summary lang="cs">Hledej v knihovně</summary>
+    <summary lang="de">Durchsuchen Sie Ihre Bibliothek.</summary>
+    <summary lang="el">Αναζήτηση στη Συλλογή σας.</summary>
+    <summary lang="en">Search your library.</summary>
+    <summary lang="en_NZ">Search your library.</summary>
+    <summary lang="en_US">Search your library.</summary>
+    <summary lang="es">Busca tu biblioteca.</summary>
+    <summary lang="fr">Chercher dans la médiathèque.</summary>
+    <summary lang="fr_CA">Chercher dans votre bibliothèque</summary>
+    <summary lang="gl">Buscar a súa biblioteca.</summary>
+    <summary lang="he">חיפוש בספריית המדיה.</summary>
+    <summary lang="hr">Pretražite svoju zbirku.</summary>
+    <summary lang="hu">Keresés a médiatárban</summary>
+    <summary lang="id">Cari pustaka Anda.</summary>
+    <summary lang="it">Ricerca nella la tua libreria.</summary>
+    <summary lang="ko">라이브러리 찾기</summary>
+    <summary lang="lt">Ieškoti bibliotekoje.</summary>
+    <summary lang="nl">Zoek in je bibliotheek.</summary>
+    <summary lang="no">Søk i biblioteket ditt</summary>
+    <summary lang="pl">Przeszukaj swoją bibliotekę</summary>
+    <summary lang="pt">Faça buscas na sua biblioteca.</summary>
+    <summary lang="pt_BR">Pesquise sua coleção.</summary>
+    <summary lang="ro">Căutați în mediateca dumneavoastră.</summary>
+    <summary lang="ru">Поиск в вашей медиатеке.</summary>
+    <summary lang="sl">Iščite v svoji knjižnici.</summary>
+    <summary lang="sv">Sök i ditt bibliotek.</summary>
+    <summary lang="tr">Kitaplığını ara</summary>
+    <summary lang="zh">资料库搜索</summary>
+    <description lang="bg">Добавката може да намери всеки елемент във вашата видео и музикална библиотека.</description>
+    <description lang="ca">Aquest complement pot trobat qualsevol article en la teva biblioteca de vídeo i música</description>
+    <description lang="cs">Tento dopněk dokáže najít libovolnou položku ve vaší audio a video knihovně.</description>
+    <description lang="de">Dieses Add-on kann jeden Eintrag in Ihrer Video- und Musikbibliothek finden.</description>
+    <description lang="el">Αυτό το πρόσθετο μπορεί να βρει κάθε αντικείμενο στις συλλογές σας.</description>
+    <description lang="en">This addon can find any item in your video and music library.</description>
+    <description lang="en_NZ">This addon can find any item in your video and music library.</description>
+    <description lang="en_US">This addon can find any item in your video and music library.</description>
+    <description lang="es">Este complemento puede encontrar cualquier elemento en tu biblioteca de vídeo y música.</description>
+    <description lang="fr">Cette extension peut trouver tout élément dans la vidéothèque et l'audiothèque.</description>
+    <description lang="fr_CA">Cet addiciel peut trouver tout élément dans votre vidéothèque et dans votre audiothèque.</description>
+    <description lang="gl">Este complemento pode atopar calquera elemento na súa biblioteca de medios.</description>
+    <description lang="he">הרחבה זו יכולה למצוא כל פריט בספריות הווידאו והמוזיקה.</description>
+    <description lang="hr">Ovaj dodatak može pronaći svaku stavku u vašoj videoteci ili fonoteci.</description>
+    <description lang="hu">Ez a kiegészítő bármely elemet megtalálja a videó és audió médiatárban.</description>
+    <description lang="id">Addon ini dapat mencari item apa saja di pustaka video dan musik Anda.</description>
+    <description lang="it">Questo addon può trovare ogni elemento nella tua libreria video ed in quella musicale.</description>
+    <description lang="ko">비디오와 음악 라이브러리의 모든 항목을 검색합니다.</description>
+    <description lang="lt">Šis priedas gali rasti bet kokį elementą jūsų vaizdo ir garso bibliotekoje.</description>
+    <description lang="nl">Deze addon kan elk item in je video- en muziekbibliotheken vinden.</description>
+    <description lang="no">Dette tillegget kan finne hva som helst i ditt film eller musikk bibliotek.</description>
+    <description lang="pl">Ten plugin może odnaleźć dowolną pozycję w twojej bibliotece wideo oraz muzycznej.</description>
+    <description lang="pt">Este addon pode encontrar qualquer item na sua biblioteca de vídeos e de músicas.</description>
+    <description lang="pt_BR">Este addon pode encontrar qualquer item na sua coleção de vídeos e música.</description>
+    <description lang="ro">Acest supliment poate găsi orice element în mediateca dumneavoastră video și audio.</description>
+    <description lang="ru">Это дополнение поможет найти любую запись в вашей медиатеке.</description>
+    <description lang="sl">Ta dodatek lahko poišče katerokoli podatek v vaši knjižnici filmov in glasbe.</description>
+    <description lang="sv">Detta tillägg kan hitta vilket objekt som helst i ditt video och musikbibliotek.</description>
+    <description lang="tr">Bu eklenti video ve müzik kitaplığınızdaki herhangi bir öğeyi bulabilir.</description>
+    <description lang="zh">此插件搜索你的视频和音乐资料库项目。</description>
+    <language />
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 2</license>
+    <forum>http://forum.kodi.tv/showthread.php?tid=109301</forum>
+    <website />
+    <email />
+    <source>https://github.com/ronie/script.globalsearch/</source>
+  </extension>
 </addon>
 
 <addon id="script.hdfull2kd" name="[COLOR FFC0392B]HDFULL[/COLOR]2KD - TVGUIA" version="1.2.0" provider-name="mancuniancol">
@@ -7073,7 +7494,7 @@ level.</description>
   </extension>
 </addon>
 
-	<addon id="script.skin.helper.service" name="Skin Helper Service" version="1.0.56" provider-name="marcelveldt">
+	<addon id="script.skin.helper.service" name="Skin Helper Service" version="1.0.68" provider-name="marcelveldt">
 	<requires>
 		<import addon="xbmc.python" version="2.13.0"/>
 		<import addon="xbmc.addon" version="12.0.0"/>
@@ -7085,7 +7506,7 @@ level.</description>
 
     <extension point="xbmc.python.library" library="default.py" />
 	<extension point="xbmc.python.pluginsource" library="plugin.py">
-		<provides>video</provides>
+		<provides>video audio</provides>
 	</extension>
 	<extension library="service.py" point="xbmc.service" start="login" />
 	<extension point="kodi.context.item" library="contextmenu_serieslevel.py">
@@ -7495,6 +7916,23 @@ level.</description>
   </extension>
 </addon>
 
+<addon id="service.htpt" name="HTPT Service" version="0.1.85" provider-name="HTPT Team">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py"/>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+    <language>he</language>
+	<platform>all</platform>
+    <summary>HTPT System Component</summary>
+    <description>This addon will be auto installed if needed.</description>
+    <disclaimer>PLEASE REFER TO HTPT INSTALLER ADDON</disclaimer>
+	<email>infohtpt@gmail.com</email>
+	<website>https://www.facebook.com/pages/HTPT/934744346549707</website>
+  </extension>
+</addon>
+
 <addon id="service.library.data.provider" name="Library Data Provider" provider-name="BigNoid, Martijn" version="0.1.5">
   <requires>
     <import addon="xbmc.addon" version="12.0.0" />
@@ -7847,7 +8285,7 @@ level.</description>
 
 <addon id="service.subtitles.torec"
        name="Torec"
-       version="1.0.6"
+       version="1.0.5"
        provider-name="slmosl">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -7884,23 +8322,22 @@ level.</description>
 
 <addon
     id="skin.eminence.zeev"
-    version="2.3.1"
+    version="2.5.0"
     name="Eminence Zeev"
     provider-name="jurialmunkey">
   <requires>
 		<import addon="xbmc.gui" version="5.10.0"/>
-	    <import addon="script.skin.helper.service" version="1.0.0"/>
-  	<import addon="script.skinshortcuts" version="0.6.5"/>
-<!--
-    <import addon="service.skin.widgets" version="0.0.29"/>
-    <import addon="service.library.data.provider" version="0.0.7"/>
-    <import addon="script.favourites" version="6.0.1"/>
-    <import addon="script.globalsearch" version="3.0.4"/>
-    <import addon="script.eminencefunctions" version="0.0.1"/>
-    <import addon="script.extendedinfo" version="3.1.1"/>
-    <import addon="script.tv.show.next.aired" version="60.0.14"/>
-	<import addon="script.artwork.downloader" version="12.0.29"/>
-	-->
+		<import addon="script.skin.helper.service" version="1.0.0"/>
+		<import addon="script.skinshortcuts" version="0.6.6"/>
+		<import addon="script.artwork.downloader" version="12.0.20"/>
+		<import addon="plugin.program.autocompletion" version="1.0.0"/>
+		<import addon="script.image.resource.select" version="0.1.0"/>
+		<import addon="resource.images.weatherfanart.single" version="0.0.6"/>
+
+		<import addon="script.favourites" version="5.0.0"/>
+		<import addon="service.library.data.provider" version="0.1.1"/>
+		<import addon="script.extendedinfo" version="3.0.0"/>
+		<import addon="script.globalsearch" version="1.1.1"/>
   </requires>
   <extension
   point="xbmc.gui.skin"
@@ -7910,39 +8347,10 @@ level.</description>
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="ca">Creat per jurialmunkey</summary>
-    <summary lang="de">Erstellt von jurialmunkey</summary>
-    <summary lang="el">Δημιουργήθηκε από τον jurialmunkey</summary>
-    <summary lang="en">Created by jurialmunkey</summary>
-    <summary lang="en_NZ">Created by jurialmunkey</summary>
-    <summary lang="en_US">Created by jurialmunkey</summary>
-    <summary lang="fr">Créé par jurialmunkey</summary>
-    <summary lang="fr_CA">Créé par jurialmunkey</summary>
-    <summary lang="gl">Creado por jurialmunkey</summary>
-    <summary lang="he">נוצרה ע"י jurialmunkey</summary>
-    <summary lang="ko">jurialmunkey 제작</summary>
-    <summary lang="lt">Sukūrė jurialmunkey</summary>
-    <summary lang="nl">Gecreëerd door jurialmunkey</summary>
-    <summary lang="no">Laget av jurialmunkey</summary>
-    <summary lang="pl">Autorstwa jurialmunkey</summary>
-    <summary lang="pt_BR">Criada por jurialmunkey</summary>
-    <summary lang="sl">Ustvaril jurialmunkey</summary>
-    <summary lang="sv">Skapat av jurialmunkey</summary>
-    <summary lang="tr">jurialmunkey tarafından tasarlandı.</summary>
-    <description lang="de">Eminence ist ein Skin der Einfachheit, Funktionalität und Anpassbarkeit mit einem modernen Aussehen verbindet</description>
+    <summary lang="en">www.The-Vibe.co.il</summary>
+    <summary lang="he">www.The-Vibe.co.il</summary>
     <description lang="en">Eminence is a skin that seeks simplicity, functionality, and customisability with a modern look</description>
-    <description lang="en_NZ">Eminence is a skin that seeks simplicity, functionality, and customisability with a modern look</description>
-    <description lang="en_US">Eminence is a skin that seeks simplicity, functionality, and customizability with a modern look</description>
-    <description lang="fr">Eminence est un thème qui cherche la simplicité, les fonctionnalités, et la personnalisation avec un aspect moderne</description>
-    <description lang="fr_CA">Éminence est un habillage qui cible la simplicité, la fonctionnalité et la personnalisation avec une apparence moderne</description>
-    <description lang="gl">Eminence é un tema que procura a simplicidade, funcionalidade e a personalización cun aspecto moderno</description>
     <description lang="he">המעטפת Eminence מתמקדת בפשטות, פונקציונליות, יכולת התאמה אישית ובעלת מראה מודרני</description>
-    <description lang="ko">Eminence은 단순함과 용이한 사용자 설정을 추구하는 현대적인 모양새의 스킨입니다</description>
-    <description lang="lt">Eminence yra teminė išvaizda, kuri siekia suderinti modernią išvaizdą su paprastumu, funkcionalumu ir galimybe pritaikyti pagal savo poreikius.</description>
-    <description lang="nl">Eminence is een skin die zoekt naar simpliciteit, functionaliteit en aanpasbaarheid met een moderne uitstraling</description>
-    <description lang="no">Eminence er et skall som søker enkelhet, funksjonalitet, og skreddersying med et moderne utseende</description>
-    <description lang="pl">Eminence to skóra, który łączy prostotę, bogactwo funkcji i łatwość dostosowania z nowoczesnym wyglądem</description>
-    <description lang="pt_BR">Eminence é uma skin que busca simplicidade, funcionalidade e costumização através de uma aparência moderna.</description>
     <platform>all</platform>
   </extension>
 </addon>
