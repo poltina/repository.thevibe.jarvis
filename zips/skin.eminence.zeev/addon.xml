@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
     id="skin.eminence.zeev"
-<<<<<<< HEAD
-    version="2.5.1"
-=======
     version="2.5.2"
->>>>>>> 457ea3969b04feaa8c4d360f2a3627f3128575eb
     name="Eminence Zeev"
     provider-name="jurialmunkey">
   <requires>
 		<import addon="xbmc.gui" version="5.10.0"/>
 		<import addon="script.skin.helper.service" version="1.0.0"/>
 		<import addon="script.skinshortcuts" version="0.6.6"/>
+		<import addon="script.artwork.downloader" version="12.0.20"/>
+		<import addon="plugin.program.autocompletion" version="1.0.0"/>
+		<import addon="script.image.resource.select" version="0.1.0"/>
+		<import addon="resource.images.weatherfanart.single" version="0.0.6"/>
+		<import addon="script.extendedinfo" version="4.6.0"/>
   </requires>
   <extension
   point="xbmc.gui.skin"
